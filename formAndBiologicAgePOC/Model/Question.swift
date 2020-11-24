@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Question {
+class Question: Codable {
     
     init(indice: Int? = nil, enunciation: String, alternatives: [Alternative] = []) {
         self.indice = indice

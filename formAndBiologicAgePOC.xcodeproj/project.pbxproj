@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563F7982256D89AC004F6155 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7981256D89AC004F6155 /* JSONManager.swift */; };
+		563F7985256D8A67004F6155 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7984256D8A67004F6155 /* QueueManager.swift */; };
+		563F7994256D97FC004F6155 /* forms.json in Resources */ = {isa = PBXBuildFile; fileRef = 563F7993256D97FC004F6155 /* forms.json */; };
 		565A401825683F4E00591112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401725683F4E00591112 /* AppDelegate.swift */; };
 		565A401A25683F4E00591112 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401925683F4E00591112 /* SceneDelegate.swift */; };
 		565A401C25683F4E00591112 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401B25683F4E00591112 /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		563F7981256D89AC004F6155 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		563F7984256D8A67004F6155 /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		563F7993256D97FC004F6155 /* forms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forms.json; sourceTree = "<group>"; };
 		565A401425683F4E00591112 /* formAndBiologicAgePOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = formAndBiologicAgePOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		565A401725683F4E00591112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		565A401925683F4E00591112 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,13 +68,16 @@
 		565A401625683F4E00591112 /* formAndBiologicAgePOC */ = {
 			isa = PBXGroup;
 			children = (
+				563F7993256D97FC004F6155 /* forms.json */,
 				56857B74256C3F6700EFD62C /* Model */,
 				565A401725683F4E00591112 /* AppDelegate.swift */,
+				563F7981256D89AC004F6155 /* JSONManager.swift */,
 				565A401925683F4E00591112 /* SceneDelegate.swift */,
 				565A401B25683F4E00591112 /* ViewController.swift */,
 				565A401D25683F4E00591112 /* Main.storyboard */,
 				565A402025683F5100591112 /* Assets.xcassets */,
 				565A402225683F5100591112 /* LaunchScreen.storyboard */,
+				563F7984256D8A67004F6155 /* QueueManager.swift */,
 				565A402525683F5100591112 /* Info.plist */,
 			);
 			path = formAndBiologicAgePOC;
@@ -142,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565A402425683F5100591112 /* LaunchScreen.storyboard in Resources */,
+				563F7994256D97FC004F6155 /* forms.json in Resources */,
 				565A402125683F5100591112 /* Assets.xcassets in Resources */,
 				565A401F25683F4E00591112 /* Main.storyboard in Resources */,
 			);
@@ -155,9 +165,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				565A401C25683F4E00591112 /* ViewController.swift in Sources */,
+				563F7982256D89AC004F6155 /* JSONManager.swift in Sources */,
 				56857B76256C3F7B00EFD62C /* Question.swift in Sources */,
 				565A401825683F4E00591112 /* AppDelegate.swift in Sources */,
 				56857B7A256C3F8B00EFD62C /* Alternative.swift in Sources */,
+				563F7985256D8A67004F6155 /* QueueManager.swift in Sources */,
 				565A401A25683F4E00591112 /* SceneDelegate.swift in Sources */,
 				56857B7D256C422300EFD62C /* Form.swift in Sources */,
 			);

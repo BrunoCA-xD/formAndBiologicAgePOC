@@ -7,14 +7,14 @@
 
 import Foundation
 
-class Form {
+class Form: Codable {
     
-    init(title: String, question: [Question] = []) {
+    init(title: String, questions: [Question] = []) {
         self.title = title
-        self.question = question
+        self.questions = questions
     }
     
     var title: String
-    var question: [Question] = []
+    var questions: [Question] = []
     var result: Float = 0
 }

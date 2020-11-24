@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Alternative {
+class Alternative: Codable {
     
     init(enunciation: String, value: Float) {
         self.enunciation = enunciation
