@@ -9,11 +9,13 @@ import Foundation
 
 class Form: Codable {
     
-    init(title: String, questions: [Question] = []) {
+    init(pilar: String,title: String, questions: [Question] = []) {
+        self.pilar = pilar
         self.title = title
         self.questions = questions
     }
     
+    var pilar: String
     var title: String
     var questions: [Question] = []
     var result: Float = 0

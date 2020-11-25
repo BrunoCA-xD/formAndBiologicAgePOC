@@ -9,12 +9,14 @@ import Foundation
 
 class Alternative: Codable {
     
-    init(enunciation: String, value: Float) {
+    init(enunciation: String,text: String, value: Float) {
+        self.text = text
         self.enunciation = enunciation
         self.value = value
     }
     
     var enunciation: String
+    var text: String
     var value: Float
 }
 

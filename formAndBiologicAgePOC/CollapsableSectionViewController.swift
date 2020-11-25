@@ -10,10 +10,10 @@ import UIKit
 class CollapsableSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    var manager = JSONManager<Form>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
