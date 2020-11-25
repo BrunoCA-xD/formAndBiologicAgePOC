@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FE7040F256EBF5C00B45F5C /* PillarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE7040D256EBF5C00B45F5C /* PillarCollectionViewCell.swift */; };
+		2FE70410256EBF5C00B45F5C /* PillarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE7040E256EBF5C00B45F5C /* PillarCollectionViewCell.xib */; };
 		565A401825683F4E00591112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401725683F4E00591112 /* AppDelegate.swift */; };
 		565A401A25683F4E00591112 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401925683F4E00591112 /* SceneDelegate.swift */; };
 		565A401C25683F4E00591112 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401B25683F4E00591112 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FE7040D256EBF5C00B45F5C /* PillarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillarCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FE7040E256EBF5C00B45F5C /* PillarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PillarCollectionViewCell.xib; sourceTree = "<group>"; };
 		565A401425683F4E00591112 /* formAndBiologicAgePOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = formAndBiologicAgePOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		565A401725683F4E00591112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		565A401925683F4E00591112 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FE70408256EBF1700B45F5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FE7040D256EBF5C00B45F5C /* PillarCollectionViewCell.swift */,
+				2FE7040E256EBF5C00B45F5C /* PillarCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		565A400B25683F4E00591112 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				56857B74256C3F6700EFD62C /* Model */,
+				2FE70408256EBF1700B45F5C /* View */,
 				565A401725683F4E00591112 /* AppDelegate.swift */,
 				565A401925683F4E00591112 /* SceneDelegate.swift */,
 				565A401B25683F4E00591112 /* ViewController.swift */,
@@ -141,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE70410256EBF5C00B45F5C /* PillarCollectionViewCell.xib in Resources */,
 				565A402425683F5100591112 /* LaunchScreen.storyboard in Resources */,
 				565A402125683F5100591112 /* Assets.xcassets in Resources */,
 				565A401F25683F4E00591112 /* Main.storyboard in Resources */,
@@ -154,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE7040F256EBF5C00B45F5C /* PillarCollectionViewCell.swift in Sources */,
 				565A401C25683F4E00591112 /* ViewController.swift in Sources */,
 				56857B76256C3F7B00EFD62C /* Question.swift in Sources */,
 				565A401825683F4E00591112 /* AppDelegate.swift in Sources */,

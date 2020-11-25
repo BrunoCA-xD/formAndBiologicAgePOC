@@ -32,34 +32,23 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="mandalaPillar" id="G3y-Lc-E4Q">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="mandalaPillar" id="G3y-Lc-E4Q" customClass="PillarCollectionViewCell" customModule="formAndBiologicAgePOC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OOY-jY-S3C">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-If-d9I">
-                                                    <rect key="frame" x="4.5" y="41.5" width="119" height="45"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atividade Física" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPX-hZ-LOC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="119" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-9l-tQq">
-                                                            <rect key="frame" x="0.0" y="24.5" width="119" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-m4-RLL" customClass="PillarButton" customModule="formAndBiologicAgePOC" customModuleProvider="target">
+                                                    <rect key="frame" x="41" y="49" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rhB-If-d9I" firstAttribute="centerY" secondItem="OOY-jY-S3C" secondAttribute="centerY" id="M9Q-ht-sx2"/>
-                                                <constraint firstItem="rhB-If-d9I" firstAttribute="centerX" secondItem="OOY-jY-S3C" secondAttribute="centerX" id="fGe-4h-clt"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cz8-m4-RLL" secondAttribute="trailing" id="HYb-st-8N7"/>
+                                                <constraint firstItem="Cz8-m4-RLL" firstAttribute="leading" secondItem="OOY-jY-S3C" secondAttribute="leading" id="cx2-yU-4eL"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cz8-m4-RLL" secondAttribute="bottom" id="jRm-LN-8UB"/>
+                                                <constraint firstItem="Cz8-m4-RLL" firstAttribute="top" secondItem="OOY-jY-S3C" secondAttribute="top" id="uPE-jq-6yK"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
