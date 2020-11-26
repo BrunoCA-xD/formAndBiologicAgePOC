@@ -448,7 +448,8 @@
     {
         "pilar": "Sono",
         "title": "Como você dorme? Como é seu sono? Como você se sente durante o dia?\nProcure responder o mais próximo da realidade possível!",
-        "question":
+        "result": 0,
+        "questions":
         [
             {
                 "indice": 0,
@@ -757,7 +758,8 @@
     {
         "pilar": "Saúde Emocional",
         "title": "Nas situações descritas, abaixo, marque as opções de sintomas que sente, caso sinta algum. Se não sentir nenhuma das opções, não marque nada.",
-        "question":
+        "result": 0,
+        "questions":
         [
             {
                 "indice": 0,

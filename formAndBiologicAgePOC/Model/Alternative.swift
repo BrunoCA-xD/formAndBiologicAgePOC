@@ -18,5 +18,6 @@ class Alternative: Codable {
     var enunciation: String
     var text: String
     var value: Float
+//    var isChoosen
 }
 

@@ -18,5 +18,6 @@ class Question: Codable {
     var indice: Int?
     var enunciation: String
     var alternatives: [Alternative]
+//    var isAnswered: Bool
     
 }
