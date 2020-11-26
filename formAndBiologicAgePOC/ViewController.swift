@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var collectionCellID: String = "mandalaPillar"
+    var currentPillar: String = "Atividade Física"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,22 +48,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.pillarName.text = "AAAAA"
             cell.pillarQuestions.text = "AAAAA"
         }
+        
+        if cell.pillarName.text == currentPillar {
+            cell.isCurrentPillar = true
+        } else {
+            cell.isCurrentPillar = false
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-            cell.wrapperView.backgroundColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
-            cell.pillarName.textColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
-            cell.pillarQuestions.textColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-            cell.wrapperView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
-            cell.pillarName.textColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
-            cell.pillarQuestions.textColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
+            print(currentPillar)
+            guard let pillarName = cell.pillarName.text else { return }
+            self.currentPillar = pillarName
+            self.collectionView.reloadData()
+            print(currentPillar)
         }
     }
 }
