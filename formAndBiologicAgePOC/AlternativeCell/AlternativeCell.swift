@@ -14,4 +14,17 @@ class AlternativeCell: UITableViewCell,Identifiable {
     @IBOutlet weak var chosenIcon: UIImageView!
     @IBOutlet weak var enunciate: UILabel!
     @IBOutlet weak var complementaryText: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.layer.cornerRadius = 4
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10))
+    }
 }

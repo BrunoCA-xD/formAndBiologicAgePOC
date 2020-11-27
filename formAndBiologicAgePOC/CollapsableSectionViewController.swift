@@ -59,6 +59,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         cell.chosenIcon.image = !alternative.isChosen ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
         cell.chosenIcon.tintColor = !alternative.isChosen ? .black : .green
         
+        
         return cell
     }
     
