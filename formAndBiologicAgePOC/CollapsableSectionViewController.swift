@@ -8,19 +8,11 @@
 import UIKit
 
 class CollapsableSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var hiddenSections: Set<Int> = [] {
-        didSet {
-            tableView.reloadSections(IndexSet(hiddenSections), with: .automatic)
-        }
-    }
+    var hiddenSections: Set<Int> = []
     
     @IBOutlet weak var tableView: UITableView!
     var manager = JSONManager<[Form]>()
-    var forms: [Form] = [] {
-        didSet{
-            tableView.reloadData()
-        }
-    }
+    var forms: [Form] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +23,18 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         tableView.estimatedSectionHeaderHeight = 150
     
         manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
-            print(error?.localizedDescription)
-            if let forms = forms {
-                self.forms = forms
+            DispatchQueue.main.async {
+                if let error = error{
+                    print(error.localizedDescription)
+                }
+                if let forms = forms {
+                    self.forms = forms
+                    self.tableView.reloadData()
+                }
             }
         }
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if !forms.isEmpty {
             return forms[1].questions.count
@@ -45,7 +43,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if hiddenSections.contains(section) {
+        if forms[1].questions[section].isAnswered {
             return 0
         }else {
             return forms[1].questions[section].alternatives.count
@@ -58,7 +56,8 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         
         cell.enunciate.text = alternative.enunciation
         cell.complementaryText.text = alternative.text
-//        cell.chosedIcon =  
+        cell.chosenIcon.image = !alternative.isChosen ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
+        cell.chosenIcon.tintColor = !alternative.isChosen ? .black : .green
         
         return cell
     }
@@ -66,6 +65,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         UITableView.automaticDimension
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableHeaderFooterView.identifier) as! TableHeaderFooterView
         headerView.contentView.backgroundColor = .white
@@ -73,16 +73,19 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             let question = forms[1].questions[section]
             
             headerView.question.text = question.enunciation
-            headerView.isAnsweredIcon.image = !hiddenSections.contains(section) ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
-            headerView.isAnsweredIcon.tintColor = !hiddenSections.contains(section) ? .black : .green
-            headerView.expandArrow.isHidden = !hiddenSections.contains(section)
+            headerView.isAnsweredIcon.isHidden = !question.isAnswered
+            headerView.isAnsweredIcon.image = !question.isAnswered ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
+            headerView.isAnsweredIcon.tintColor = !question.isAnswered ? .black : .green
+            headerView.expandArrow.isHidden = !question.isAnswered
         }
         return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hiddenSections.insert(indexPath.section)
-        
+        forms[1].questions[indexPath.section].isAnswered = true
+        forms[1].questions[indexPath.section].alternatives[indexPath.row].isChosen = true
+        tableView.reloadSections(IndexSet(indexPath), with: .automatic)
     }
 
 }

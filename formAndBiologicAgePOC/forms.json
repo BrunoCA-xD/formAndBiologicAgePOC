@@ -6,26 +6,31 @@
         "questions": [{
             "indice": 0,
             "enunciation": "Como você classifica seu nível de atividade física?",
+            "isAnswered": false,
             "alternatives": [
                 {
                     "enunciation": "Sedentário",
                     "text": "Não realiza nenhuma atividade física ou  faz até 60minutos na semana;\nOu dá menos de 5.000 passos por dia",
-                    "value": 0
+                    "value": 0,
+                    "isChosen": false
                 },
                 {
                     "enunciation": "Pouco Ativo",
                     "text": "Realiza atividade física até 5 dias na semana mas até 150 minutos;\nOu dá entre 7.500 a 10.000 passos por dia",
-                    "value": 1
+                    "value": 1,
+                    "isChosen": false
                 },
                 {
                     "enunciation": "Ativo",
                     "text": "Realiza atividade física 5 dias ou mais na semana mas de 150 até 225 minutos;\nOu dá entre 10.000 a 12.500 passos por dia",
-                    "value": 2
+                    "value": 2,
+                    "isChosen": false
                 },
                 {
                     "enunciation": "Muito Ativo",
                     "text": "Realiza atividade física 5 dias ou mais na semana e 225 minutos ou mais;\nOu dá mais que 12.500 passos por dia" ,
-                    "value": 2
+                    "value": 2,
+                    "isChosen": false
                 }
             ]
         }]
@@ -38,408 +43,484 @@
             {
                 "indice": 0,
                 "enunciation": "Quantas refeições principais (café da manhã, almoço e jantar) você faz por dia?",
+                "isAnswered": false,
                 "alternatives": [
                     {
                         "enunciation": "1",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "2",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "3",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "4",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 1,
                 "enunciation": "Você costuma comer entre as refeições?",
+                "isAnswered": false,
                 "alternatives": [
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não, apenas bebo água",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Sim, faço pequenos lanches",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Sim, belisco pequenas coisas o dia inteiro",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 2,
                 "enunciation": "O que você prefere consumir usualmente?",
+                "isAnswered": false,
                 "alternatives": [
                     {
                         "enunciation": "Alimentos frescos",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Alimentos processados",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Alimentos frescos e processados na mesma proporção",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 3,
                 "enunciation": "Como você faz a preparação dos seus pratos?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Pratos com alimentos crus",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Pratos com alimentos cozidos, assados ou grelhados",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Pratos com frituras",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Pratos ricos em molho cremoso",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 4,
                 "enunciation": "O que você pensa ao fazer um prato?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Colocar prioritariamente proteína",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Colocar prioritariamente carboidrato",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Colocar bastante salada e legumes",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Colocar um pouco de tudo",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 5,
                 "enunciation": "Quanto de água você bebe por dia?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Entre 1 e 3 copos",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Entre 4 e 6 copos",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Entre 7 e 9 copos",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Mais de 2 litros",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 6,
                 "enunciation": "Quando você costuma comer?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Está com fome",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Está com muita fome",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Alguém está comendo e te oferece",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Vê algo gostoso",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 7,
                 "enunciation": "Você costuma comer até quanto?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Ficar satisfeito",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Acabar com tudo que está no prato",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Se sentir cheio",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não aguentar mais",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 8,
                 "enunciation": "Com qual frequência você consome bebida alcoólica?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Nunca",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "De 1 a 3 vezes por semana",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "De 4 a 6 vezes por semana",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Todos os dias",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 9,
                 "enunciation": "Que tipo de atenção você tem  quando consome algum alimento?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Tem atenção ao que está comendo",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Come sem pensar",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Quer saber quantas calorias tem",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Quer saber os ingredientes",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 10,
                 "enunciation": "Como você costuma comer?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Devagar",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Saboreando",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Rápido",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Fazendo outra coisa ao mesmo tempo",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 11,
                 "enunciation": "Com qual frequência você come frutas e legumes?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Todos os dias",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "3 vezes por semana",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "5 vezes por semana",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Raramente",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 12,
                 "enunciation": "O que você sente quando come?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "prazer",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "culpa",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "nutrido",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "conforto",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 13,
                 "enunciation": "Qual a sua preocupação quando vai comer?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "com o que deve comer, com o que não deve faltar na sua alimentação",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "com o que não deve comer",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "com o que é proibido comer",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "com tudo que come, de um modo geral",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não tem nenhuma preocupação",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 14,
                 "enunciation": "Como você pensa que é a melhor forma de emagrecer?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "procurando aumentar o gasto calórico com atividade física",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "comendo cada vez menos",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "se hidratando e reduzindo um pouco a quantidade de comida",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "usando remédios",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     }
                     ,
                     {
                         "enunciation": "procurando aumentar o gasto calórico com atividade física e comendo cada vez menos",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             }
@@ -454,302 +535,358 @@
             {
                 "indice": 0,
                 "enunciation": "Ao deitar e apagar as luzes você demora mais do que 30 minutos para dormir?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Às vezes",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Raramente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Durmo em menos tempo",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Levo ainda mais tempo para dormir",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 1,
                 "enunciation": "Acorda com frequência durante a noite?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Nunca",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Acordo algumas vezes",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Acordo várias vezes",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Acordo todas as noites",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 2,
                 "enunciation": "Quando acorda, tem dificuldade para pegar no sono novamente?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Não consigo dormir mais",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não, durmo logo",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Às vezes",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Quase sempre durmo novamente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 3,
                 "enunciation": "Seu sono é agitado?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Bastante",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Levemente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Meu sono á tranquilo",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Moderado",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 4,
                 "enunciation": "Tem dificuldade para se levantar de manhã?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Nenhuma",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Bastante",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Levanto rápido ",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Às vezes",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 5,
                 "enunciation": "Sente-se cansado durante o dia, com pouca atenção, foco ou concentração nas atividades diárias?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Levemente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não consigo render nada",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Muito cansado",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não me sinto cansado",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 6,
                 "enunciation": "Já sofreu algum acidente ou esteve perto disso, por ter dormido pouco?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sempre sofro pequenos acidentes",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nunca sofri nenhum acidente",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Raramente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "As vezes",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 7,
                 "enunciation": "Adormece facilmente quando vê televisão ou lê alguma coisa?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Às vezes",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Raramente",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Frequentemente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Sempre",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 8,
                 "enunciation": "Você faz pequenos cochilos durante o dia?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Quase sempre",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Raramente",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Às vezes",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Frequentemente",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nunca",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 9,
                 "enunciation": "Sofre jet-lag em função de suas atividades?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Às vezes",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Quase sempre",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nunca",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Frequentemente",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 10,
                 "enunciation": "Dorme mais no fim de semana, que em dias de semana?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Durmo igual",
                         "text": "",
-                        "value": 4
+                        "value": 4,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Geralmente sim",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Certamente sim",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Quase nunca",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     }
                 ]
             }
@@ -764,326 +901,388 @@
             {
                 "indice": 0,
                 "enunciation": "Como você se sente na maior arte do tempo?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Ansioso e nervoso",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Depressivo ou com mudanças de humor bruscas",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Irritado ou desanimado",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Intolerante ou impaciente",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Desinteressado",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Inquieto ou com dificuldades para dormir",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 1,
                 "enunciation": "O que você sente quando está nervoso?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Tensão muscular",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Dores de cabeça",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Dores na nuca",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Dores pelo corpo",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Mandíbula contraída",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Ranger de dentes ao dormir",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 2,
                 "enunciation": "Quais manias você possui?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Tiques motores (faciais ou movimentos descontrolados de mãos e cabeça) ",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Roer unhas",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Morder a língua, dedos ou boca",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Arrancar cabelos ou pelos do corpo",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Dificuldade para engolir ou muita salivação",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Coçar ou espremer feridas na pele",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 3,
                 "enunciation": "Com relação à sua saúde, você apresenta quais sintomas?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Dor de estomago, enjoo, azia",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Aperto no peito",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Agravamento ou surgimento de diabete",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Arritmias cardíacas ou aumento da pressão arterial",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Labirintite ou zumbido no ouvido",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Desempenho sexual reduzido",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 4,
                 "enunciation": "Em repouso, você apresenta quais sintomas?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Batimentos cardíacos acelerados ou palpitações",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Respiração acelerada ou falta de ar",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Suor excessivo nas mãos",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Tonturas ou tremores",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Formigamento ou boca seca",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Perda de apetite ou mudança de peso",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 5,
                 "enunciation": "Quais sintomas você costuma ter?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Gripes",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Problemas de pele",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Alergias",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Asma ou bronquite asmática",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Infecções",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Doenças autoimunes",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 6,
                 "enunciation": "Quais reaçõs você tem em situações de tensão?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Falta de concentração ou dificuldade cognitiva",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Choro compulsivo",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Pensamentos negativos",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Cansaço",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Aumento no consumo de bebidas alcoólicas ou de tabaco",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Sensação de medo",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 7,
                 "enunciation": "Quando os sintomas marcados nas perguntas acima, surgiram?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Há menos de 1 mês, mas são esporádicos",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Há menos de 1 mês, mas são frequentes",
                         "text": "",
-                        "value": 8
+                        "value": 8,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Há mais de 1 mês, mas são esporádicos",
                         "text": "",
-                        "value": 8
+                        "value": 8,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Há mais de 1 mês, mas são frequentes",
                         "text": "",
-                        "value": 15
+                        "value": 15,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Nenhuma das anteriores",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             }
@@ -1098,295 +1297,348 @@
             {
                 "indice": 0,
                 "enunciation": "Qual é a sua circunferência abdominal?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Mulher, abaixo de 80 cm/ homem, abaixo de 90 cm",
                         "text": "",
-                        "value": -1
+                        "value": -1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Mulher, abaixo de 84 cm/ homem, abaixo de 94 cm",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Mulher, abaixo de 88 cm/ homem, abaixo de 102 cm",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não sri informar",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 1,
                 "enunciation": "Qual opção abaixo mais se adequa a você em relação a tabagismo?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Você não fuma e nem nunca fumou",
                         "text": "",
-                        "value": -1
+                        "value": -1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Parou de fumar há cinco anos ou mais",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Parou de fumar nos últimos 4 anos",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Fuma atualmente",
                         "text": "",
-                        "value": 3
+                        "value": 3,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 2,
                 "enunciation": "Tem diagnóstico médico de Hipertensão Arterial ou uso de medicamento anti-hipertensivo",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": -0.5
+                        "value": -0.5,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 3,
                 "enunciation": "Se souber insira sua pressão arterial abaixo:",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não sei informar",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 4,
                 "enunciation": "Tem diagnóstico médico de aumento do colesterol no sangue ou uso de medicação para controle dos níveis de colesterol ou de triglicérides",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não sei informar",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 5,
                 "enunciation": "Se souber insira sua taxa de colesterol abaixo:",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não sei informar",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 6,
                 "enunciation": "Se souber insira sua taxa de triglicérides abaixo:",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não sei informar",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 7,
                 "enunciation": "Calcule seu IMC:",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Peso:",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Altura:",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Seu IMC é:",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 8,
                 "enunciation": "Qual é o seu IMC?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Menor que 18,5",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Entre 25 e 29",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Acima de 30",
                         "text": "",
-                        "value": 0.5
+                        "value": 0.5,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Entre 18,5 e 25",
                         "text": "",
-                        "value": -1
+                        "value": -1,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 9,
                 "enunciation": "É Obeso?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 10,
                 "enunciation": "Tem Diabetes",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": -0.5
+                        "value": -0.5,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 11,
                 "enunciation": "Se souber insira aqui sua glicemia",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não sei informar",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 12,
                 "enunciation": "Existe alguma história familiar (pais e irmãos) de doença cardíaca?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 1
+                        "value": 1,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 13,
                 "enunciation": "Você possui algum problema ósseo ou articular ou muscular grave?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             },
             {
                 "indice": 14,
                 "enunciation": "Você já tece algum tipo de câncer?",
+                "isAnswered": false,
                 "alternatives":
                 [
                     {
                         "enunciation": "Sim",
                         "text": "",
-                        "value": 2
+                        "value": 2,
+                        "isChosen": false
                     },
                     {
                         "enunciation": "Não",
                         "text": "",
-                        "value": 0
+                        "value": 0,
+                        "isChosen": false
                     }
                 ]
             }

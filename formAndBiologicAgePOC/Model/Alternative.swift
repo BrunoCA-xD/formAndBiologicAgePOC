@@ -9,15 +9,16 @@ import Foundation
 
 class Alternative: Codable {
     
-    init(enunciation: String,text: String, value: Float) {
+    init(enunciation: String,text: String, value: Float, isChosen: Bool) {
         self.text = text
         self.enunciation = enunciation
         self.value = value
+        self.isChosen = isChosen
     }
     
     var enunciation: String
     var text: String
     var value: Float
-//    var isChoosen
+    var isChosen: Bool
 }
 

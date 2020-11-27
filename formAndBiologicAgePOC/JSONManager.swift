@@ -70,7 +70,7 @@ class JSONManager<Entity> where Entity:Codable{
     }
     
     func getJSON(url: URL?, completion: @escaping (Entity?, Error?) ->()){
-        let block = JSONOperation(block: { [self] in
+        let block = JSONOperation(block: {
             do {
                 if let url = url{
                     let data = try Data(contentsOf: url)
