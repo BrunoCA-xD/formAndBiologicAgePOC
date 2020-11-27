@@ -14,13 +14,29 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var manager = JSONManager<[Form]>()
     var forms: [Form] = []
     
+    var numberOfShowingSection: Int {
+        answeringSection == -1 ? 1 : 0
+    }
+    
+    var answeringSection: Int = -1
+    
+    @IBAction func nextButton(_ sender: Any) {
+        if answeringSection != -1 {
+            hiddenSections.insert(answeringSection)
+            answeringSection = -1
+            tableView.reloadData()
+            
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let headerNib = UINib.init(nibName: "TableHeaderFooterView", bundle: .main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier:TableHeaderFooterView.identifier)
         let cellNib = UINib.init(nibName: "AlternativeCell", bundle: .main)
         tableView.register(cellNib, forCellReuseIdentifier: AlternativeCell.identifier)
-        tableView.estimatedSectionHeaderHeight = 150
+        tableView.estimatedRowHeight  = 200
+        
         
         manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
             DispatchQueue.main.async {
@@ -37,7 +53,11 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if !forms.isEmpty {
-            return forms[1].questions.count
+            let answeredList = forms[1].questions.compactMap{$0.isAnswered ? $0 : nil}
+            if forms[1].questions.count == answeredList.count {
+                return answeredList.count
+            }
+            return answeredList.count + numberOfShowingSection
         }
         return 0
     }
@@ -67,6 +87,9 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableHeaderFooterView.identifier) as! TableHeaderFooterView
         headerView.contentView.backgroundColor = .white
@@ -86,9 +109,10 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        hiddenSections.insert(indexPath.section)
+        
         let question = forms[1].questions[indexPath.section]
         if !question.isAnswered {
+            answeringSection = indexPath.section
             question.isAnswered = true
             question.alternatives[indexPath.row].isChosen = true
             forms[1].result += question.alternatives[indexPath.row].value
@@ -102,7 +126,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 }
             }
         }
-        tableView.reloadSections(IndexSet(indexPath), with: .automatic)
+        tableView.reloadData()
     }
 }
 

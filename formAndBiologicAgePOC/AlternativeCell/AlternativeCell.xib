@@ -18,20 +18,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gqR-ez-0ff">
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gqR-ez-0ff">
                         <rect key="frame" x="10" y="10" width="300" height="82"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nvS-pN-pSP">
-                                <rect key="frame" x="0.0" y="13.5" width="271" height="55"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nvS-pN-pSP">
+                                <rect key="frame" x="0.0" y="18" width="271" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6Q-97-mon">
-                                        <rect key="frame" x="0.0" y="0.0" width="271" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="sjndsajsfc ldj asljdkjsa lsfn asj knasj kajs kfaj bsadf kasj ba" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6Q-97-mon">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-CE-bfN">
-                                        <rect key="frame" x="0.0" y="5" width="271" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="998" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-CE-bfN">
+                                        <rect key="frame" x="0.0" y="46" width="271" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="iip-IJ-Sw7"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="iip-IJ-Sw7"/>
                         </constraints>
                     </stackView>
                 </subviews>
