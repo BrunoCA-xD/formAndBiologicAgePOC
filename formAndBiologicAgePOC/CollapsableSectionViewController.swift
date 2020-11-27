@@ -86,8 +86,21 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hiddenSections.insert(indexPath.section)
-        forms[1].questions[indexPath.section].isAnswered = true
-        forms[1].questions[indexPath.section].alternatives[indexPath.row].isChosen = true
+        let question = forms[1].questions[indexPath.section]
+        if !question.isAnswered {
+            question.isAnswered = true
+            question.alternatives[indexPath.row].isChosen = true
+            forms[1].result += question.alternatives[indexPath.row].value
+        }else {
+            if let chosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
+                if chosenIndex != indexPath.row {
+                    question.alternatives[chosenIndex].isChosen = false
+                    forms[1].result -= question.alternatives[chosenIndex].value
+                    question.alternatives[indexPath.row].isChosen = true
+                    forms[1].result += question.alternatives[indexPath.row].value
+                }
+            }
+        }
         tableView.reloadSections(IndexSet(indexPath), with: .automatic)
     }
 }
