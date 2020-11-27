@@ -15,16 +15,26 @@ class PillarCollectionViewCell: UICollectionViewCell {
     
     var isCurrentPillar: Bool = false {
         didSet {
-            if self.isCurrentPillar == true {
+            if isCurrentPillar {
                 self.wrapperView.backgroundColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
                 self.pillarName.textColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
                 self.pillarQuestions.textColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             } else {
                 self.wrapperView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+                self.wrapperView.layer.borderColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1) 
                 self.pillarName.textColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
                 self.pillarQuestions.textColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
-
             }
+        }
+    }
+    
+    var isAvailable: Bool = true {
+        didSet {
+            self.isUserInteractionEnabled = self.isAvailable ? true : false
+            self.wrapperView.layer.borderColor = isAvailable ? #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1) : #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5019607843, alpha: 0.6)
+            self.pillarName.textColor = isAvailable ? #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1) : #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5019607843, alpha: 0.6)
+            self.pillarQuestions.textColor = isAvailable ? #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1) : #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5019607843, alpha: 0.6)
+
         }
     }
     
