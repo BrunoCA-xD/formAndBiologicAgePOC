@@ -43,7 +43,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if forms[1].questions[section].isAnswered {
+        if hiddenSections.contains(section) {
             return 0
         }else {
             return forms[1].questions[section].alternatives.count
