@@ -21,7 +21,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         let cellNib = UINib.init(nibName: "AlternativeCell", bundle: .main)
         tableView.register(cellNib, forCellReuseIdentifier: AlternativeCell.identifier)
         tableView.estimatedSectionHeaderHeight = 150
-    
+        
         manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
             DispatchQueue.main.async {
                 if let error = error{
@@ -69,6 +69,8 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableHeaderFooterView.identifier) as! TableHeaderFooterView
         headerView.contentView.backgroundColor = .white
+        headerView.delegate = self
+        headerView.sectionIndex = section
         if !forms.isEmpty{
             let question = forms[1].questions[section]
             
@@ -76,6 +78,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             headerView.isAnsweredIcon.isHidden = !question.isAnswered
             headerView.isAnsweredIcon.image = !question.isAnswered ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
             headerView.isAnsweredIcon.tintColor = !question.isAnswered ? .black : .green
+            headerView.expandArrow.image = hiddenSections.contains(section) ? UIImage(named: "chevron.down") : UIImage(named: "chevron.up")
             headerView.expandArrow.isHidden = !question.isAnswered
         }
         return headerView
@@ -87,6 +90,20 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         forms[1].questions[indexPath.section].alternatives[indexPath.row].isChosen = true
         tableView.reloadSections(IndexSet(indexPath), with: .automatic)
     }
+}
 
+
+extension CollapsableSectionViewController: TableHeaderFooterViewDelegate {
+    func headerTapped(_ sectionIndex: Int) {
+        if forms[1].questions[sectionIndex].isAnswered {
+            if hiddenSections.contains(sectionIndex){
+                hiddenSections.remove(sectionIndex)
+            }else {
+                hiddenSections.insert(sectionIndex)
+            }
+            tableView.reloadSections([sectionIndex], with: .automatic)
+        }
+    }
+    
 }
 

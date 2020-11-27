@@ -15,40 +15,58 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uf8-kB-0mP">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZp-PO-TLd" customClass="UIControl">
                     <rect key="frame" x="10" y="10" width="394" height="80"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Ao deitar e apagar as luzes você demora mais do que 30 minutos para dormir?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHV-Iv-sfU">
-                            <rect key="frame" x="0.0" y="19.5" width="340" height="41"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2wT-eZ-sC3">
-                            <rect key="frame" x="345" y="28.5" width="24" height="23"/>
-                            <color key="tintColor" systemColor="labelColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="24" id="4xm-9R-iMp"/>
-                                <constraint firstAttribute="height" constant="24" id="AfT-t2-Jc0"/>
-                            </constraints>
-                        </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="otr-Y6-wc4">
-                            <rect key="frame" x="374" y="35" width="20" height="10.5"/>
-                            <color key="tintColor" systemColor="secondaryLabelColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="20" id="p2u-Ab-7pz"/>
-                            </constraints>
-                        </imageView>
+                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uf8-kB-0mP">
+                            <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Ao deitar e apagar as luzes você demora mais do que 30 minutos para dormir?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHV-Iv-sfU">
+                                    <rect key="frame" x="0.0" y="19.5" width="340" height="41"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                    </accessibility>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="2wT-eZ-sC3">
+                                    <rect key="frame" x="345" y="28" width="24" height="24"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="24" id="4xm-9R-iMp"/>
+                                        <constraint firstAttribute="height" constant="24" id="AfT-t2-Jc0"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.up" translatesAutoresizingMaskIntoConstraints="NO" id="otr-Y6-wc4">
+                                    <rect key="frame" x="374" y="37" width="20" height="6"/>
+                                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="p2u-Ab-7pz"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                        </stackView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="uf8-kB-0mP" firstAttribute="top" secondItem="WZp-PO-TLd" secondAttribute="top" id="Mxl-LQ-9Ek"/>
+                        <constraint firstItem="uf8-kB-0mP" firstAttribute="leading" secondItem="WZp-PO-TLd" secondAttribute="leading" id="VgH-h2-pSg"/>
+                        <constraint firstAttribute="bottom" secondItem="uf8-kB-0mP" secondAttribute="bottom" id="hkk-k8-4Sz"/>
+                        <constraint firstAttribute="trailing" secondItem="uf8-kB-0mP" secondAttribute="trailing" id="kfh-d3-FrL"/>
+                    </constraints>
+                    <connections>
+                        <action selector="headerTap:" destination="dIq-m3-pBq" eventType="touchUpInside" id="Vg5-DH-7cx"/>
+                    </connections>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="dgz-kC-8y3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="uf8-kB-0mP" firstAttribute="top" secondItem="dIq-m3-pBq" secondAttribute="top" constant="10" id="GQE-Bf-inl"/>
-                <constraint firstItem="dgz-kC-8y3" firstAttribute="bottom" secondItem="uf8-kB-0mP" secondAttribute="bottom" constant="10" id="IZ6-Bk-S1g"/>
-                <constraint firstItem="uf8-kB-0mP" firstAttribute="trailing" secondItem="dIq-m3-pBq" secondAttribute="trailing" constant="-10" id="Y7P-7V-Jpa"/>
-                <constraint firstItem="uf8-kB-0mP" firstAttribute="leading" secondItem="dgz-kC-8y3" secondAttribute="leading" constant="10" id="zsO-Tt-pYv"/>
+                <constraint firstAttribute="trailing" secondItem="WZp-PO-TLd" secondAttribute="trailing" constant="10" id="RHN-Ax-MKb"/>
+                <constraint firstItem="WZp-PO-TLd" firstAttribute="leading" secondItem="dIq-m3-pBq" secondAttribute="leading" constant="10" id="eOU-jc-4PP"/>
+                <constraint firstItem="WZp-PO-TLd" firstAttribute="top" secondItem="dIq-m3-pBq" secondAttribute="top" constant="10" id="iwM-aM-EqX"/>
+                <constraint firstItem="dgz-kC-8y3" firstAttribute="bottom" secondItem="WZp-PO-TLd" secondAttribute="bottom" constant="10" id="seK-eK-JbH"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -62,8 +80,8 @@
         </view>
     </objects>
     <resources>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.up" width="11" height="7"/>
+        <image name="circle" width="13" height="13"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
