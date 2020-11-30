@@ -8,6 +8,8 @@
 import UIKit
 
 class AlternativeCell: UITableViewCell,Identifiable {
+   
+    @IBOutlet weak var layoutView: UIView!
     static var identifier: String {
         String(describing: AlternativeCell.self)
     }
@@ -17,14 +19,13 @@ class AlternativeCell: UITableViewCell,Identifiable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.layer.cornerRadius = 4
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.black.cgColor
+        layoutView.layer.cornerRadius = 4
+        layoutView.layer.borderWidth = 1
+        layoutView.layer.borderColor = UIColor.black.cgColor
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10))
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10))
     }
 }
