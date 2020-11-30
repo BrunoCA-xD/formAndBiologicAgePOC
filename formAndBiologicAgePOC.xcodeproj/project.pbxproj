@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FE7040F256EBF5C00B45F5C /* PillarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE7040D256EBF5C00B45F5C /* PillarCollectionViewCell.swift */; };
+		2FE70410256EBF5C00B45F5C /* PillarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE7040E256EBF5C00B45F5C /* PillarCollectionViewCell.xib */; };
 		563F7982256D89AC004F6155 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7981256D89AC004F6155 /* JSONManager.swift */; };
 		563F7985256D8A67004F6155 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7984256D8A67004F6155 /* QueueManager.swift */; };
 		563F7994256D97FC004F6155 /* forms.json in Resources */ = {isa = PBXBuildFile; fileRef = 563F7993256D97FC004F6155 /* forms.json */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FE7040D256EBF5C00B45F5C /* PillarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillarCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FE7040E256EBF5C00B45F5C /* PillarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PillarCollectionViewCell.xib; sourceTree = "<group>"; };
 		563F7981256D89AC004F6155 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		563F7984256D8A67004F6155 /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		563F7993256D97FC004F6155 /* forms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forms.json; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FE70408256EBF1700B45F5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FE7040D256EBF5C00B45F5C /* PillarCollectionViewCell.swift */,
+				2FE7040E256EBF5C00B45F5C /* PillarCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		565A400B25683F4E00591112 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 				AD870379256EFF1D00C10AB6 /* AlternativeCell */,
 				563F7993256D97FC004F6155 /* forms.json */,
 				56857B74256C3F6700EFD62C /* Model */,
+				2FE70408256EBF1700B45F5C /* View */,
 				565A401725683F4E00591112 /* AppDelegate.swift */,
 				563F7981256D89AC004F6155 /* JSONManager.swift */,
 				565A401925683F4E00591112 /* SceneDelegate.swift */,
@@ -184,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE70410256EBF5C00B45F5C /* PillarCollectionViewCell.xib in Resources */,
 				565A402425683F5100591112 /* LaunchScreen.storyboard in Resources */,
 				563F7994256D97FC004F6155 /* forms.json in Resources */,
 				565A402125683F5100591112 /* Assets.xcassets in Resources */,
@@ -201,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE7040F256EBF5C00B45F5C /* PillarCollectionViewCell.swift in Sources */,
 				565A401C25683F4E00591112 /* ViewController.swift in Sources */,
 				563F7982256D89AC004F6155 /* JSONManager.swift in Sources */,
 				56857B76256C3F7B00EFD62C /* Question.swift in Sources */,
@@ -359,7 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = VZ4Y7Q4FJ2;
 				INFOPLIST_FILE = formAndBiologicAgePOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -379,7 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = VZ4Y7Q4FJ2;
 				INFOPLIST_FILE = formAndBiologicAgePOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
