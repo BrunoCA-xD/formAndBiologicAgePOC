@@ -9,7 +9,11 @@ import UIKit
 
 class CollapsableSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var hiddenSections: Set<Int> = []
-    
+    var selectedForm: Int! {
+        didSet{
+            tableView.reloadData()
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
     var manager = JSONManager<[Form]>()
     var forms: [Form] = []
@@ -25,8 +29,9 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             hiddenSections.insert(answeringSection)
             answeringSection = -1
             tableView.reloadData()
-            
+
         }
+//        (parent as! ViewController).defaultSetting = true
         
     }
     override func viewDidLoad() {
@@ -53,8 +58,8 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if !forms.isEmpty {
-            let answeredList = forms[1].questions.compactMap{$0.isAnswered ? $0 : nil}
-            if forms[1].questions.count == answeredList.count {
+            let answeredList = forms[selectedForm].questions.compactMap{$0.isAnswered ? $0 : nil}
+            if forms[selectedForm].questions.count == answeredList.count {
                 return answeredList.count
             }
             return answeredList.count + numberOfShowingSection
@@ -66,13 +71,13 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         if hiddenSections.contains(section) {
             return 0
         }else {
-            return forms[1].questions[section].alternatives.count
+            return forms[selectedForm].questions[section].alternatives.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlternativeCell.identifier, for: indexPath) as! AlternativeCell
-        let alternative = forms[1].questions[indexPath.section].alternatives[indexPath.row]
+        let alternative = forms[selectedForm].questions[indexPath.section].alternatives[indexPath.row]
         
         cell.enunciate.text = alternative.enunciation
         cell.complementaryText.text = alternative.text
@@ -96,7 +101,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         headerView.delegate = self
         headerView.sectionIndex = section
         if !forms.isEmpty{
-            let question = forms[1].questions[section]
+            let question = forms[selectedForm].questions[section]
             
             headerView.question.text = question.enunciation
             headerView.isAnsweredIcon.isHidden = !question.isAnswered
@@ -110,19 +115,19 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let question = forms[1].questions[indexPath.section]
+        let question = forms[selectedForm].questions[indexPath.section]
         if !question.isAnswered {
             answeringSection = indexPath.section
             question.isAnswered = true
             question.alternatives[indexPath.row].isChosen = true
-            forms[1].result += question.alternatives[indexPath.row].value
+            forms[selectedForm].result += question.alternatives[indexPath.row].value
         }else {
             if let chosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
                 if chosenIndex != indexPath.row {
                     question.alternatives[chosenIndex].isChosen = false
-                    forms[1].result -= question.alternatives[chosenIndex].value
+                    forms[selectedForm].result -= question.alternatives[chosenIndex].value
                     question.alternatives[indexPath.row].isChosen = true
-                    forms[1].result += question.alternatives[indexPath.row].value
+                    forms[selectedForm].result += question.alternatives[indexPath.row].value
                 }
             }
         }
@@ -133,7 +138,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
 
 extension CollapsableSectionViewController: TableHeaderFooterViewDelegate {
     func headerTapped(_ sectionIndex: Int) {
-        if forms[1].questions[sectionIndex].isAnswered {
+        if forms[selectedForm].questions[sectionIndex].isAnswered {
             if hiddenSections.contains(sectionIndex){
                 hiddenSections.remove(sectionIndex)
             }else {

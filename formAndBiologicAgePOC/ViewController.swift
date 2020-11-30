@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionTimeline: UILabel!
     @IBOutlet weak var pillarIcon: UIImageView!
     
+    private var colapsableSectionViewController: CollapsableSectionViewController?
+  
     var collectionCellID: String = "mandalaPillar"
     var isBiologicalAgeAvailable: Bool = false
     var numberOfQuestions: Int = 1
@@ -39,6 +41,17 @@ class ViewController: UIViewController {
         self.setDefaultSettings()
         let nibName = UINib(nibName: "PillarCollectionViewCell", bundle:nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: collectionCellID)
+        
+        guard let colapsableViewController = children.first as? CollapsableSectionViewController else  {
+          fatalError("Check storyboard for missing LocationTableViewController")
+        }
+        let indexPath = IndexPath(row: 0, section: 0)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        if let firstCell = self.collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
+            firstCell.isCurrentPillar = true
+        }
+        colapsableSectionViewController = colapsableViewController
+        colapsableViewController.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
     }
     
     /// Sets a default question timeline and pilla icon
@@ -112,6 +125,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             self.numberOfQuestions = cell.getNumberOfQuestions()
             self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
             updateView(pillarName: pillarName, icon: cell.getIcon())
+            self.colapsableSectionViewController?.selectedForm = indexPath.row
         }
     }
     

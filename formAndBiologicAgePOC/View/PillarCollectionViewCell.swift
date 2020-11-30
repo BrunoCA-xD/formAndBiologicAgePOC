@@ -41,6 +41,15 @@ class PillarCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.isUserInteractionEnabled = true
+        self.wrapperView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        self.wrapperView.layer.borderColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
+        self.pillarName.textColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
+        self.pillarQuestions.textColor = #colorLiteral(red: 0.2941176471, green: 0.4509803922, blue: 1, alpha: 1)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.wrapperView.layer.cornerRadius = 4
