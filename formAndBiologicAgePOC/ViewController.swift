@@ -11,9 +11,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var questionTimeline: UILabel!
+    @IBOutlet weak var pillarIcon: UIImageView!
     
     var collectionCellID: String = "mandalaPillar"
     var isBiologicalAgeAvailable: Bool = false
+    var numberOfQuestions: Int = 1
+    var numberOfAnsweredQuestions: Int = 0
+    
     var defaultSetting: Bool = true {
         didSet {
             let indexPath = IndexPath(row: 0, section: 0)
@@ -22,6 +27,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     var currentPillar: String = "Atividade Física" {
         didSet {
             self.navigationController?.title = self.currentPillar
@@ -30,8 +36,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setDefaultSettings()
         let nibName = UINib(nibName: "PillarCollectionViewCell", bundle:nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: collectionCellID)
+    }
+    
+    /// Sets a default question timeline and pilla icon
+    fileprivate func setDefaultSettings() {
+        self.questionTimeline.text = "Questão \(numberOfAnsweredQuestions+1) de \(numberOfQuestions)"
+        self.pillarIcon.image = UIImage(named: "physical-activity-icon")
+    }
+    
+    /// Updates navigation tittle, questions, timeline and icon.
+    fileprivate func updateView(pillarName: String?, icon: UIImage) {
+        self.questionTimeline.text = "Questão \(numberOfAnsweredQuestions+1) de \(numberOfQuestions)"
+        self.pillarIcon.image = icon
+        self.navigationItem.title = pillarName
     }
 }
 
@@ -48,25 +68,34 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         switch indexPath.row {
         case 0:
             cell.pillarName.text = "Atividade Física"
-            cell.pillarQuestions.text = "0/1"
+            cell.setNumberOfQuestions(numberOfQuestions: 1)
             cell.isCurrentPillar = self.defaultSetting ? true : false
+            cell.setIcon(iconName: "physical-activity-icon")
         case 1:
             cell.pillarName.text = "Alimentação"
-            cell.pillarQuestions.text = "0/15"
+            cell.setNumberOfQuestions(numberOfQuestions: 15)
+            cell.setIcon(iconName: "alimentation-icon")
         case 2:
             cell.pillarName.text = "Sono"
-            cell.pillarQuestions.text = "0/11"
+            cell.setNumberOfQuestions(numberOfQuestions: 11)
+            cell.setIcon(iconName: "sleep-icon")
         case 3:
-            cell.pillarName.text = "Saúde Mental"
-            cell.pillarQuestions.text = "0/8"
+            cell.pillarName.text = "Saúde Emocional"
+            cell.setNumberOfQuestions(numberOfQuestions: 8)
+            cell.setIcon(iconName: "emotional-health-icon")
         case 4:
             cell.isAvailable = false
             cell.pillarName.text = "Idade Biológica"
-            cell.pillarQuestions.text = "0/15"
+            cell.setNumberOfQuestions(numberOfQuestions: 15)
+            cell.setIcon(iconName: "biological-age-icon")
         default:
             cell.pillarName.text = "AAAAA"
             cell.pillarQuestions.text = "AAAAA"
         }
+        
+        self.numberOfQuestions = cell.getNumberOfQuestions()
+        self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
+        cell.pillarQuestions.text = "\(numberOfAnsweredQuestions)/\(numberOfQuestions)"
         
         return cell
     }
@@ -80,6 +109,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             let pillarName = cell.pillarName.text
             self.currentPillar = pillarName!
             cell.isCurrentPillar = true
+            self.numberOfQuestions = cell.getNumberOfQuestions()
+            self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
+            updateView(pillarName: pillarName, icon: cell.getIcon())
         }
     }
     
