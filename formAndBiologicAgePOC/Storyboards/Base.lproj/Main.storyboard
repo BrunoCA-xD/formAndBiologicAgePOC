@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -72,7 +72,7 @@
                                 </constraints>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8h-Hm-0GQ">
-                                <rect key="frame" x="0.0" y="369" width="414" height="493"/>
+                                <rect key="frame" x="0.0" y="368.5" width="414" height="493.5"/>
                                 <connections>
                                     <segue destination="Qyq-tp-fFE" kind="embed" id="vPM-98-Lq3"/>
                                 </connections>
@@ -94,7 +94,13 @@
                             <constraint firstItem="K3I-Tw-gjs" firstAttribute="centerX" secondItem="JR0-mQ-zOw" secondAttribute="centerX" id="zAq-Fq-7uT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Atividade Física" id="yHB-fZ-K3R"/>
+                    <navigationItem key="navigationItem" title="Atividade Física" id="yHB-fZ-K3R">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="RZX-F3-aJ9">
+                            <connections>
+                                <segue destination="wbV-nY-dqg" kind="show" id="1JN-Nm-iFU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="xHV-XB-FMj" id="iqS-RC-hZE"/>
                         <outlet property="pillarIcon" destination="K3I-Tw-gjs" id="GH8-c0-zBR"/>
@@ -123,23 +129,33 @@
             </objects>
             <point key="canvasLocation" x="228.98550724637684" y="93.75"/>
         </scene>
+        <!--Mandala-->
+        <scene sceneID="2TP-ya-U4W">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Mandala" id="wbV-nY-dqg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zFG-sI-ZZh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hMX-VW-hc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1630" y="-157"/>
+        </scene>
         <!--Collapsable Section View Controller-->
         <scene sceneID="Sls-qB-n4U">
             <objects>
                 <viewController storyboardIdentifier="Questions" id="Qyq-tp-fFE" customClass="CollapsableSectionViewController" customModule="formAndBiologicAgePOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d5F-m5-XzL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="493"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="493.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09N-5B-PFb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="341"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="341.5"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Qyq-tp-fFE" id="Fau-Vi-Kfl"/>
                                     <outlet property="delegate" destination="Qyq-tp-fFE" id="JOo-Uj-h0o"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JlO-YT-rWY">
-                                <rect key="frame" x="0.0" y="393" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="393.5" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-Q2-vjP">
                                         <rect key="frame" x="16" y="16" width="382" height="68"/>
@@ -186,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra2-oC-yCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-467" y="78"/>
+            <point key="canvasLocation" x="1871" y="94"/>
         </scene>
     </scenes>
     <resources>
