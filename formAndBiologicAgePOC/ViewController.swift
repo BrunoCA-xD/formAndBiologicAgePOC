@@ -14,8 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionTimeline: UILabel!
     @IBOutlet weak var pillarIcon: UIImageView!
     
+    
     private var colapsableSectionViewController: CollapsableSectionViewController?
-  
+    var selectedNextItem: IndexPath = IndexPath(row: 0, section: 0) {
+        didSet{
+            collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
+            updateSelectedItem(selectedNextItem)
+            collectionView.reloadData()
+        }
+    }
+    
     var collectionCellID: String = "mandalaPillar"
     var isBiologicalAgeAvailable: Bool = false
     var numberOfQuestions: Int = 1
@@ -51,7 +59,7 @@ class ViewController: UIViewController {
             firstCell.isCurrentPillar = true
         }
         colapsableSectionViewController = colapsableViewController
-        colapsableViewController.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
+        colapsableSectionViewController?.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
     }
     
     /// Sets a default question timeline and pilla icon
@@ -87,14 +95,17 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         case 1:
             cell.pillarName.text = "Alimentação"
             cell.setNumberOfQuestions(numberOfQuestions: 15)
+            cell.isCurrentPillar = self.selectedNextItem.row == 1 ? true : false
             cell.setIcon(iconName: "alimentation-icon")
         case 2:
             cell.pillarName.text = "Sono"
             cell.setNumberOfQuestions(numberOfQuestions: 11)
+            cell.isCurrentPillar = self.selectedNextItem.row == 2 ? true : false
             cell.setIcon(iconName: "sleep-icon")
         case 3:
             cell.pillarName.text = "Saúde Emocional"
             cell.setNumberOfQuestions(numberOfQuestions: 8)
+            cell.isCurrentPillar = self.selectedNextItem.row == 3 ? true : false
             cell.setIcon(iconName: "emotional-health-icon")
         case 4:
             cell.isAvailable = false
@@ -113,7 +124,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    fileprivate func updateSelectedItem(_ indexPath: IndexPath){
         if defaultSetting {
             self.defaultSetting = false
         }
@@ -127,6 +138,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             updateView(pillarName: pillarName, icon: cell.getIcon())
             self.colapsableSectionViewController?.selectedForm = indexPath.row
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        updateSelectedItem(indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

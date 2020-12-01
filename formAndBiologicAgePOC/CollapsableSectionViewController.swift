@@ -8,9 +8,11 @@
 import UIKit
 
 class CollapsableSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var nextAndContinueButton: UIButton!
     var hiddenSections: Set<Int> = []
     var selectedForm: Int! {
         didSet{
+            setHiddenSections()
             tableView.reloadData()
         }
     }
@@ -25,14 +27,30 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var answeringSection: Int = -1
     
     @IBAction func nextButton(_ sender: Any) {
-        if answeringSection != -1 {
-            hiddenSections.insert(answeringSection)
-            answeringSection = -1
-            tableView.reloadData()
-
+        if nextAndContinueButton.title(for: .normal) == "Próxima"{
+            if answeringSection != -1 {
+                hiddenSections.insert(answeringSection)
+                answeringSection = -1
+                tableView.reloadData()
+            }
+        }else{
+            if let item = (parent as! ViewController).collectionView.indexPathsForSelectedItems?.first{
+                let indexPath = IndexPath(row: item.row+1, section: 0)
+                answeringSection = -1
+                (parent as! ViewController).selectedNextItem = indexPath
+            }
         }
 //        (parent as! ViewController).defaultSetting = true
         
+    }
+    
+    func setHiddenSections(){
+        hiddenSections = []
+        if let selected = selectedForm, !forms.isEmpty{
+            for i in 0..<forms[selected].questions.compactMap({$0.isAnswered ? $0 : nil}).count {
+                hiddenSections.insert(i)
+            }
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +77,11 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     func numberOfSections(in tableView: UITableView) -> Int {
         if !forms.isEmpty {
             let answeredList = forms[selectedForm].questions.compactMap{$0.isAnswered ? $0 : nil}
+            if forms[selectedForm].questions.count <= hiddenSections.count+1 {
+                nextAndContinueButton.setTitle("Continuar", for: .normal)
+            }else{
+                nextAndContinueButton.setTitle("Próxima", for: .normal)
+            }
             if forms[selectedForm].questions.count == answeredList.count {
                 return answeredList.count
             }
