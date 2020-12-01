@@ -37,15 +37,6 @@ class ViewController: UIViewController {
     var numberOfQuestions: Int = 1
     var numberOfAnsweredQuestions: Int = 0
     
-    var defaultSetting: Bool = true {
-        didSet {
-            let indexPath = IndexPath(row: 0, section: 0)
-            if let firstCell = self.collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-                firstCell.isCurrentPillar = self.defaultSetting ? true : false
-            }
-        }
-    }
-    
     var currentPillar: String = "Atividade Física" {
         didSet {
             self.navigationController?.title = self.currentPillar
@@ -132,9 +123,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     fileprivate func updateSelectedItem(_ indexPath: IndexPath){
-        if defaultSetting {
-            self.defaultSetting = false
-        }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
             let pillarName = cell.pillarName.text
