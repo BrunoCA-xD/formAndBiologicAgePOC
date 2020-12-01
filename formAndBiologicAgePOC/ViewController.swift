@@ -17,10 +17,18 @@ class ViewController: UIViewController {
     
     private var colapsableSectionViewController: CollapsableSectionViewController?
     var selectedNextItem: IndexPath = IndexPath(row: 0, section: 0) {
+        willSet{
+            if newValue != selectedNextItem {
+                collectionView.deselectItem(at: selectedNextItem, animated: true)
+                collectionView(collectionView, didDeselectItemAt: selectedNextItem)
+            }
+        }
         didSet{
-            collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
-            updateSelectedItem(selectedNextItem)
-            collectionView.reloadData()
+            if let selecteds = collectionView.indexPathsForSelectedItems, !selecteds.contains(selectedNextItem){
+                collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
+                collectionView(collectionView, didSelectItemAt: selectedNextItem)
+                collectionView.reloadData()
+            }
         }
     }
     
@@ -53,12 +61,11 @@ class ViewController: UIViewController {
         guard let colapsableViewController = children.first as? CollapsableSectionViewController else  {
           fatalError("Check storyboard for missing LocationTableViewController")
         }
-        let indexPath = IndexPath(row: 0, section: 0)
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-        if let firstCell = self.collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-            firstCell.isCurrentPillar = true
-        }
+        
+        collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
+        collectionView(collectionView, didSelectItemAt: selectedNextItem)
         colapsableSectionViewController = colapsableViewController
+        colapsableViewController.vcController = self
         colapsableSectionViewController?.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
     }
     
@@ -90,32 +97,32 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         case 0:
             cell.pillarName.text = "Atividade Física"
             cell.setNumberOfQuestions(numberOfQuestions: 1)
-            cell.isCurrentPillar = self.defaultSetting ? true : false
+            
             cell.setIcon(iconName: "physical-activity-icon")
         case 1:
             cell.pillarName.text = "Alimentação"
             cell.setNumberOfQuestions(numberOfQuestions: 15)
-            cell.isCurrentPillar = self.selectedNextItem.row == 1 ? true : false
             cell.setIcon(iconName: "alimentation-icon")
         case 2:
             cell.pillarName.text = "Sono"
             cell.setNumberOfQuestions(numberOfQuestions: 11)
-            cell.isCurrentPillar = self.selectedNextItem.row == 2 ? true : false
             cell.setIcon(iconName: "sleep-icon")
         case 3:
             cell.pillarName.text = "Saúde Emocional"
             cell.setNumberOfQuestions(numberOfQuestions: 8)
-            cell.isCurrentPillar = self.selectedNextItem.row == 3 ? true : false
             cell.setIcon(iconName: "emotional-health-icon")
         case 4:
             cell.isAvailable = false
             cell.pillarName.text = "Idade Biológica"
             cell.setNumberOfQuestions(numberOfQuestions: 15)
             cell.setIcon(iconName: "biological-age-icon")
+            
         default:
             cell.pillarName.text = "AAAAA"
             cell.pillarQuestions.text = "AAAAA"
         }
+        
+        cell.isCurrentPillar = selectedNextItem == indexPath
         
         self.numberOfQuestions = cell.getNumberOfQuestions()
         self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
@@ -141,6 +148,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedNextItem = indexPath
         updateSelectedItem(indexPath)
     }
     

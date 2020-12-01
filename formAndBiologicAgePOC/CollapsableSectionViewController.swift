@@ -10,6 +10,8 @@ import UIKit
 class CollapsableSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var nextAndContinueButton: UIButton!
     var hiddenSections: Set<Int> = []
+    
+    var vcController: ViewController?
     var selectedForm: Int! {
         didSet{
             setHiddenSections()
@@ -34,10 +36,11 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 tableView.reloadData()
             }
         }else{
-            if let item = (parent as! ViewController).collectionView.indexPathsForSelectedItems?.first{
+            
+            if let item = vcController?.selectedNextItem{
                 let indexPath = IndexPath(row: item.row+1, section: 0)
                 answeringSection = -1
-                (parent as! ViewController).selectedNextItem = indexPath
+                vcController?.selectedNextItem = indexPath
             }
         }
 //        (parent as! ViewController).defaultSetting = true
