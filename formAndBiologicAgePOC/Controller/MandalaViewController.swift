@@ -13,6 +13,9 @@ class MandalaViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    /// - Parameters:
+    ///     - age: Current user age.
+    /// - Returns: A tabulated multiplier, given a age.
     private func getMultiplier(age: Int) -> Float {
         var multiplier: Float = 0.0
         
