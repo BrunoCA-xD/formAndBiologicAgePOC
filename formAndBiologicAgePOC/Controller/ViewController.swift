@@ -14,21 +14,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionTimeline: UILabel!
     @IBOutlet weak var pillarIcon: UIImageView!
     
+    
     private var colapsableSectionViewController: CollapsableSectionViewController?
-  
+    var selectedNextItem: IndexPath = IndexPath(row: 0, section: 0) {
+        willSet{
+            if newValue != selectedNextItem {
+                collectionView.deselectItem(at: selectedNextItem, animated: true)
+                collectionView(collectionView, didDeselectItemAt: selectedNextItem)
+            }
+        }
+        didSet{
+            if let selecteds = collectionView.indexPathsForSelectedItems, !selecteds.contains(selectedNextItem){
+                collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
+                collectionView(collectionView, didSelectItemAt: selectedNextItem)
+                collectionView.reloadData()
+            }
+        }
+    }
+    
     var collectionCellID: String = "mandalaPillar"
     var isBiologicalAgeAvailable: Bool = false
     var numberOfQuestions: Int = 1
     var numberOfAnsweredQuestions: Int = 0
-    
-    var defaultSetting: Bool = true {
-        didSet {
-            let indexPath = IndexPath(row: 0, section: 0)
-            if let firstCell = self.collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-                firstCell.isCurrentPillar = self.defaultSetting ? true : false
-            }
-        }
-    }
     
     var currentPillar: String = "Atividade Física" {
         didSet {
@@ -45,13 +52,12 @@ class ViewController: UIViewController {
         guard let colapsableViewController = children.first as? CollapsableSectionViewController else  {
           fatalError("Check storyboard for missing LocationTableViewController")
         }
-        let indexPath = IndexPath(row: 0, section: 0)
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-        if let firstCell = self.collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-            firstCell.isCurrentPillar = true
-        }
+        
+        collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
+        collectionView(collectionView, didSelectItemAt: selectedNextItem)
         colapsableSectionViewController = colapsableViewController
-        colapsableViewController.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
+        colapsableViewController.vcController = self
+        colapsableSectionViewController?.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
     }
     
     /// Sets a default question timeline and pilla icon
@@ -82,7 +88,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         case 0:
             cell.pillarName.text = "Atividade Física"
             cell.setNumberOfQuestions(numberOfQuestions: 1)
-            cell.isCurrentPillar = self.defaultSetting ? true : false
+            
             cell.setIcon(iconName: "physical-activity-icon")
         case 1:
             cell.pillarName.text = "Alimentação"
@@ -101,10 +107,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.pillarName.text = "Idade Biológica"
             cell.setNumberOfQuestions(numberOfQuestions: 15)
             cell.setIcon(iconName: "biological-age-icon")
+            
         default:
             cell.pillarName.text = "AAAAA"
             cell.pillarQuestions.text = "AAAAA"
         }
+        
+        cell.isCurrentPillar = selectedNextItem == indexPath
         
         self.numberOfQuestions = cell.getNumberOfQuestions()
         self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
@@ -113,10 +122,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if defaultSetting {
-            self.defaultSetting = false
-        }
+    fileprivate func updateSelectedItem(_ indexPath: IndexPath){
         
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
             let pillarName = cell.pillarName.text
@@ -127,6 +133,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             updateView(pillarName: pillarName, icon: cell.getIcon())
             self.colapsableSectionViewController?.selectedForm = indexPath.row
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedNextItem = indexPath
+        updateSelectedItem(indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
