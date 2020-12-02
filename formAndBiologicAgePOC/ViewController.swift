@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionTimeline: UILabel!
     @IBOutlet weak var pillarIcon: UIImageView!
     
+    var manager = JSONManager<[Form]>()
+    var forms: [Form] = []
     
     private var colapsableSectionViewController: CollapsableSectionViewController?
     var selectedNextItem: IndexPath = IndexPath(row: 0, section: 0) {
@@ -34,18 +36,10 @@ class ViewController: UIViewController {
     
     var collectionCellID: String = "mandalaPillar"
     var isBiologicalAgeAvailable: Bool = false
-    var numberOfQuestions: Int = 1
-    var numberOfAnsweredQuestions: Int = 0
     
-    var currentPillar: String = "Atividade Física" {
-        didSet {
-            self.navigationController?.title = self.currentPillar
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setDefaultSettings()
         let nibName = UINib(nibName: "PillarCollectionViewCell", bundle:nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: collectionCellID)
         
@@ -58,19 +52,39 @@ class ViewController: UIViewController {
         colapsableSectionViewController = colapsableViewController
         colapsableViewController.vcController = self
         colapsableSectionViewController?.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
-    }
-    
-    /// Sets a default question timeline and pilla icon
-    fileprivate func setDefaultSettings() {
-        self.questionTimeline.text = "Questão \(numberOfAnsweredQuestions+1) de \(numberOfQuestions)"
-        self.pillarIcon.image = UIImage(named: "physical-activity-icon")
+        
+        manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
+            DispatchQueue.main.async {
+                if let error = error{
+                    print(error.localizedDescription)
+                }
+                if let forms = forms {
+                    self.forms = forms
+                    self.collectionView.reloadData()
+//                    self.setDefaultSettings()
+                    self.updateView()
+                    colapsableViewController.forms = forms
+                }
+            }
+        }
     }
     
     /// Updates navigation tittle, questions, timeline and icon.
-    fileprivate func updateView(pillarName: String?, icon: UIImage) {
-        self.questionTimeline.text = "Questão \(numberOfAnsweredQuestions+1) de \(numberOfQuestions)"
-        self.pillarIcon.image = icon
-        self.navigationItem.title = pillarName
+    func updateView() {
+        if forms.isEmpty{
+            return
+}
+        let pillar = forms[selectedNextItem.row]
+        var answeredCount = pillar.numberOfAnswered
+        let totalCount = pillar.questions.count
+        answeredCount = answeredCount+(colapsableSectionViewController?.numberOfShowingSection ?? 0)
+        if answeredCount > totalCount{
+            answeredCount = totalCount
+        }
+        
+        self.questionTimeline.text = "Questão \(answeredCount) de \(totalCount)"
+        self.pillarIcon.image = UIImage(named: "formImg\(selectedNextItem.row)")
+        self.navigationItem.title = pillar.pilar
     }
 }
 
@@ -81,43 +95,28 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellID,
-                                                      for: indexPath) as! PillarCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellID, for: indexPath) as! PillarCollectionViewCell
         
-        switch indexPath.row {
-        case 0:
-            cell.pillarName.text = "Atividade Física"
-            cell.setNumberOfQuestions(numberOfQuestions: 1)
-            
-            cell.setIcon(iconName: "physical-activity-icon")
-        case 1:
-            cell.pillarName.text = "Alimentação"
-            cell.setNumberOfQuestions(numberOfQuestions: 15)
-            cell.setIcon(iconName: "alimentation-icon")
-        case 2:
-            cell.pillarName.text = "Sono"
-            cell.setNumberOfQuestions(numberOfQuestions: 11)
-            cell.setIcon(iconName: "sleep-icon")
-        case 3:
-            cell.pillarName.text = "Saúde Emocional"
-            cell.setNumberOfQuestions(numberOfQuestions: 8)
-            cell.setIcon(iconName: "emotional-health-icon")
-        case 4:
-            cell.isAvailable = false
-            cell.pillarName.text = "Idade Biológica"
-            cell.setNumberOfQuestions(numberOfQuestions: 15)
-            cell.setIcon(iconName: "biological-age-icon")
-            
-        default:
-            cell.pillarName.text = "AAAAA"
-            cell.pillarQuestions.text = "AAAAA"
+        if forms.isEmpty{
+         return cell
         }
         
-        cell.isCurrentPillar = selectedNextItem == indexPath
+        let pillar = forms[indexPath.row]
         
-        self.numberOfQuestions = cell.getNumberOfQuestions()
-        self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
-        cell.pillarQuestions.text = "\(numberOfAnsweredQuestions)/\(numberOfQuestions)"
+        let totalCount = pillar.questions.count
+        
+        cell.pillarName.text = pillar.pilar
+        cell.isCurrentPillar = selectedNextItem == indexPath
+        if indexPath.row == forms.count-1{
+           let numberOfFormsAnswered = forms.reduce(0) { (partialResult, form) -> Int in
+                if form.numberOfAnswered == form.questions.count {
+                    return partialResult+1
+                }
+                return partialResult
+            }
+            cell.isAvailable = numberOfFormsAnswered == forms.count-1
+        }
+        cell.pillarQuestions.text = "\(pillar.numberOfAnswered)/\(totalCount)"
         
         return cell
     }
@@ -125,12 +124,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     fileprivate func updateSelectedItem(_ indexPath: IndexPath){
         
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
-            let pillarName = cell.pillarName.text
-            self.currentPillar = pillarName!
             cell.isCurrentPillar = true
-            self.numberOfQuestions = cell.getNumberOfQuestions()
-            self.numberOfAnsweredQuestions = cell.getNumberOfAnsweredQuestions()
-            updateView(pillarName: pillarName, icon: cell.getIcon())
+            updateView()
             self.colapsableSectionViewController?.selectedForm = indexPath.row
         }
     }

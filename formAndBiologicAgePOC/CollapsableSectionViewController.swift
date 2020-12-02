@@ -16,11 +16,16 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         didSet{
             setHiddenSections()
             tableView.reloadData()
+            vcController?.updateView()
         }
     }
     @IBOutlet weak var tableView: UITableView!
     var manager = JSONManager<[Form]>()
-    var forms: [Form] = []
+    var forms: [Form] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     var numberOfShowingSection: Int {
         answeringSection == -1 ? 1 : 0
@@ -34,6 +39,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 hiddenSections.insert(answeringSection)
                 answeringSection = -1
                 tableView.reloadData()
+                vcController?.updateView()
             }
         }else{
             
@@ -50,7 +56,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     func setHiddenSections(){
         hiddenSections = []
         if let selected = selectedForm, !forms.isEmpty{
-            for i in 0..<forms[selected].questions.compactMap({$0.isAnswered ? $0 : nil}).count {
+            for i in 0..<forms[selected].numberOfAnswered {
                 hiddenSections.insert(i)
             }
         }
@@ -63,18 +69,6 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         tableView.register(cellNib, forCellReuseIdentifier: AlternativeCell.identifier)
         tableView.estimatedRowHeight  = 200
         
-        
-        manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
-            DispatchQueue.main.async {
-                if let error = error{
-                    print(error.localizedDescription)
-                }
-                if let forms = forms {
-                    self.forms = forms
-                    self.tableView.reloadData()
-                }
-            }
-        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -147,6 +141,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             question.isAnswered = true
             question.alternatives[indexPath.row].isChosen = true
             forms[selectedForm].result += question.alternatives[indexPath.row].value
+            vcController?.collectionView.reloadData()
         }else {
             if let chosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
                 if chosenIndex != indexPath.row {

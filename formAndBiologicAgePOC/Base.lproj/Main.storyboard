@@ -169,7 +169,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lLc-on-hmm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="lLc-on-hmm" firstAttribute="bottom" secondItem="JlO-YT-rWY" secondAttribute="bottom" id="KUJ-A5-Gxy"/>
                             <constraint firstItem="lLc-on-hmm" firstAttribute="trailing" secondItem="09N-5B-PFb" secondAttribute="trailing" id="OHw-1Y-g0c"/>
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra2-oC-yCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-467" y="78"/>
+            <point key="canvasLocation" x="2128" y="201"/>
         </scene>
     </scenes>
     <resources>
@@ -197,6 +197,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

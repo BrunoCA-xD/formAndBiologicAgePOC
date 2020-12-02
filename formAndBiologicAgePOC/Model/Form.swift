@@ -19,4 +19,9 @@ class Form: Codable {
     var title: String
     var questions: [Question] = []
     var result: Float = 0
+    
+    var numberOfAnswered: Int {
+        questions.filter({$0.isAnswered}).count
+    }
 }
+

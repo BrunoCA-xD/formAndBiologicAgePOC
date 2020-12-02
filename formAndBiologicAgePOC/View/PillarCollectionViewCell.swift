@@ -15,7 +15,7 @@ class PillarCollectionViewCell: UICollectionViewCell {
     
     private var numberOfQuestions: Int = 0
     private var numberOfAnsweredQuestions: Int = 0
-    private var icon: UIImage = UIImage(named: "physical-activity-icon")!
+    private var icon: UIImage = UIImage(named: "formImg0")!
     
     var isCurrentPillar: Bool = false {
         didSet {
@@ -77,6 +77,10 @@ class PillarCollectionViewCell: UICollectionViewCell {
     
     func setNumberOfQuestions(numberOfQuestions: Int) {
         self.numberOfQuestions = numberOfQuestions
+    }
+    
+    func setNumberOfAnsweredQuestions(numberOfAnsweredQuestions: Int) {
+        self.numberOfAnsweredQuestions = numberOfAnsweredQuestions
     }
     
     func getNumberOfAnsweredQuestions() -> Int {
