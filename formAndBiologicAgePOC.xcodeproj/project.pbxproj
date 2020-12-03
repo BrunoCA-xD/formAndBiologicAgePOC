@@ -19,7 +19,6 @@
 		565A402125683F5100591112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565A402025683F5100591112 /* Assets.xcassets */; };
 		565A402425683F5100591112 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565A402225683F5100591112 /* LaunchScreen.storyboard */; };
 		56683228256EDFEE005157B3 /* CollapsableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56683227256EDFEE005157B3 /* CollapsableSectionViewController.swift */; };
-		5668322B256EE02A005157B3 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5668322A256EE02A005157B3 /* Second.storyboard */; };
 		56683230256EE762005157B3 /* TableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5668322F256EE762005157B3 /* TableHeaderFooterView.swift */; };
 		56857B76256C3F7B00EFD62C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56857B75256C3F7B00EFD62C /* Question.swift */; };
 		56857B7A256C3F8B00EFD62C /* Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56857B79256C3F8B00EFD62C /* Alternative.swift */; };
@@ -44,7 +43,6 @@
 		565A402325683F5100591112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		565A402525683F5100591112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56683227256EDFEE005157B3 /* CollapsableSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSectionViewController.swift; sourceTree = "<group>"; };
-		5668322A256EE02A005157B3 /* Second.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
 		5668322F256EE762005157B3 /* TableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderFooterView.swift; sourceTree = "<group>"; };
 		56857B75256C3F7B00EFD62C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		56857B79256C3F8B00EFD62C /* Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alternative.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				565A402525683F5100591112 /* Info.plist */,
 				56683227256EDFEE005157B3 /* CollapsableSectionViewController.swift */,
 				56CDC0B9257025C800224F9A /* QuestionHeader */,
-				5668322A256EE02A005157B3 /* Second.storyboard */,
 			);
 			path = formAndBiologicAgePOC;
 			sourceTree = "<group>";
@@ -202,7 +199,6 @@
 				565A402425683F5100591112 /* LaunchScreen.storyboard in Resources */,
 				563F7994256D97FC004F6155 /* forms.json in Resources */,
 				565A402125683F5100591112 /* Assets.xcassets in Resources */,
-				5668322B256EE02A005157B3 /* Second.storyboard in Resources */,
 				565A401F25683F4E00591112 /* Main.storyboard in Resources */,
 				AD87037D256EFFAA00C10AB6 /* AlternativeCell.xib in Resources */,
 				56CDC0B6257025BC00224F9A /* TableHeaderFooterView.xib in Resources */,

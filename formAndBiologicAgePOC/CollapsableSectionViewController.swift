@@ -18,6 +18,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             setHiddenSections()
             tableView.reloadData()
             vcController?.updateView()
+            configureButton()
         }
     }
     
@@ -32,7 +33,6 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var answeringSection: Int = -1
     
     @IBAction func nextButton(_ sender: Any) {
-        print(selectedForm?.result)
         if nextAndContinueButton.title(for: .normal) == "Próxima"{
             if answeringSection != -1 {
                 hiddenSections.insert(answeringSection)
@@ -68,13 +68,25 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         
     }
     
+    fileprivate func configureButton() {
+        guard selectedForm != nil else {return}
+        if numberOfShowingSection == 1 && selectedForm!.numberOfAnswered != selectedForm!.questions.count {
+            nextAndContinueButton.isEnabled = false
+            nextAndContinueButton.backgroundColor = .lightGray
+        }else {
+            nextAndContinueButton.isEnabled = true
+            nextAndContinueButton.backgroundColor = .blue
+        }
+        if selectedForm!.questions.count <= hiddenSections.count+1 {
+            nextAndContinueButton.setTitle("Continuar", for: .normal)
+        }else{
+            nextAndContinueButton.setTitle("Próxima", for: .normal)
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if let selectedForm = selectedForm {
-            if selectedForm.questions.count <= hiddenSections.count+1 {
-                nextAndContinueButton.setTitle("Continuar", for: .normal)
-            }else{
-                nextAndContinueButton.setTitle("Próxima", for: .normal)
-            }
+            configureButton()
             if selectedForm.questions.count == selectedForm.numberOfAnswered {
                 return selectedForm.numberOfAnswered
             }
@@ -132,6 +144,8 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard selectedForm != nil else {return}
+        configureButton()
+        
         let question = selectedForm!.questions[indexPath.section]
         if !question.isAnswered {
             answeringSection = indexPath.section
