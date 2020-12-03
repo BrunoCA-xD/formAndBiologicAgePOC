@@ -13,23 +13,12 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     var vcController: ViewController?
     
-    var forms: [Form] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    var selectedFormIndex: Int! {
+    var selectedForm: Form? {
         didSet{
             setHiddenSections()
             tableView.reloadData()
             vcController?.updateView()
         }
-    }
-    var selectedForm: Form? {
-        if !forms.isEmpty && selectedFormIndex != nil {
-            return forms[selectedFormIndex]
-        }
-        return nil
     }
     
     @IBOutlet weak var tableView: UITableView!
