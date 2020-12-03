@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var manager = JSONManager<[Form]>()
     var forms: [Form] = []
     
-    private var colapsableSectionViewController: CollapsableSectionViewController?
+    private var collapsableSectionVC: CollapsableSectionViewController?
     
     var selectedNextItem: IndexPath = IndexPath(row: 0, section: 0) {
         willSet{
@@ -32,12 +32,21 @@ class ViewController: UIViewController {
         }
     }
     
+    var selectedForm: Form? {
+        didSet {
+            collapsableSectionVC?.selectedForm = selectedForm
+        }
+    }
+    
     var collectionCellID: String = "mandalaPillar"
     
     private func selectItem() {
         collectionView.selectItem(at: selectedNextItem, animated: true, scrollPosition: .left)
         collectionView(collectionView, didSelectItemAt: selectedNextItem)
         collectionView.reloadData()
+        if !forms.isEmpty {
+            selectedForm = forms[selectedNextItem.row]
+        }
     }
     
     private func deselectitem() {
@@ -45,18 +54,21 @@ class ViewController: UIViewController {
         collectionView(collectionView, didDeselectItemAt: selectedNextItem)
     }
     
+    private func initializeCollapsableVC() {
+        guard let colapsableViewController = children.first as? CollapsableSectionViewController else  {
+            fatalError("Check storyboard for missing LocationTableViewController")
+        }
+        
+        collapsableSectionVC = colapsableViewController
+        colapsableViewController.vcController = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nibName = UINib(nibName: "PillarCollectionViewCell", bundle:nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: collectionCellID)
         
-        guard let colapsableViewController = children.first as? CollapsableSectionViewController else  {
-          fatalError("Check storyboard for missing LocationTableViewController")
-        }
-        
-        selectItem()
-        colapsableSectionViewController = colapsableViewController
-        colapsableViewController.vcController = self
+        initializeCollapsableVC()
         
         manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
             DispatchQueue.main.async { [self] in
@@ -65,9 +77,8 @@ class ViewController: UIViewController {
                 }
                 if let forms = forms {
                     self.forms = forms
-                    collectionView.reloadData()
+                    selectItem()
                     updateView()
-                    colapsableSectionViewController?.selectedForm = forms.first
                 }
             }
         }
@@ -81,7 +92,7 @@ class ViewController: UIViewController {
         let pillar = forms[selectedNextItem.row]
         var answeredCount = pillar.numberOfAnswered
         let totalCount = pillar.questions.count
-        answeredCount = answeredCount+(colapsableSectionViewController?.numberOfShowingSection ?? 0)
+        answeredCount = answeredCount+(collapsableSectionVC?.numberOfShowingSection ?? 0)
         if answeredCount > totalCount{
             answeredCount = totalCount
         }
@@ -128,7 +139,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
             cell.isCurrentPillar = true
             updateView()
-            self.colapsableSectionViewController?.selectedForm = forms[indexPath.row]
+            selectedForm = forms[indexPath.row]
         }
     }
     
