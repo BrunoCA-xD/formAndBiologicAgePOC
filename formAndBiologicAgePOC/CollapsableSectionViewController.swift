@@ -32,6 +32,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var answeringSection: Int = -1
     
     @IBAction func nextButton(_ sender: Any) {
+        print(selectedForm?.result)
         if nextAndContinueButton.title(for: .normal) == "Próxima"{
             if answeringSection != -1 {
                 hiddenSections.insert(answeringSection)
@@ -134,17 +135,13 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         let question = selectedForm!.questions[indexPath.section]
         if !question.isAnswered {
             answeringSection = indexPath.section
-            question.isAnswered = true
             question.alternatives[indexPath.row].isChosen = true
-            selectedForm!.result += question.alternatives[indexPath.row].value
             vcController?.collectionView.reloadData()
         }else {
             if let chosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
                 if chosenIndex != indexPath.row {
                     question.alternatives[chosenIndex].isChosen = false
-                    selectedForm!.result -= question.alternatives[chosenIndex].value
                     question.alternatives[indexPath.row].isChosen = true
-                    selectedForm!.result += question.alternatives[indexPath.row].value
                 }
             }
         }

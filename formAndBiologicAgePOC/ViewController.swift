@@ -86,10 +86,7 @@ class ViewController: UIViewController {
     
     /// Updates navigation tittle, questions, timeline and icon.
     func updateView() {
-        if forms.isEmpty{
-            return
-}
-        let pillar = forms[selectedNextItem.row]
+        guard let pillar = selectedForm else {return}
         var answeredCount = pillar.numberOfAnswered
         let totalCount = pillar.questions.count
         answeredCount = answeredCount+(collapsableSectionVC?.numberOfShowingSection ?? 0)
@@ -152,22 +149,5 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
             cell.isCurrentPillar = false
         }
-    }
-}
-
-// MARK:- TableViewDataSource
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "questionCell")
-        cell.textLabel?.text = "AAAAA"
-        return cell
     }
 }

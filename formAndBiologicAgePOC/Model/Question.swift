@@ -9,16 +9,21 @@ import Foundation
 
 class Question: Codable {
     
-    init(indice: Int? = nil, enunciation: String, isAnswered: Bool, alternatives: [Alternative] = []) {
+    init(indice: Int? = nil, enunciation: String, alternatives: [Alternative] = []) {
         self.indice = indice
         self.enunciation = enunciation
         self.alternatives = alternatives
-        self.isAnswered = isAnswered
     }
     
     var indice: Int?
     var enunciation: String
-    var isAnswered: Bool
     var alternatives: [Alternative]
+    
+    var isAnswered: Bool {
+        chosenAlternatives.count>0
+    }
+    var chosenAlternatives: [Alternative] {
+        alternatives.filter{$0.isChosen}
+    }
     
 }
