@@ -12,20 +12,29 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var hiddenSections: Set<Int> = []
     
     var vcController: ViewController?
-    var selectedForm: Int! {
+    
+    var forms: [Form] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var selectedFormIndex: Int! {
         didSet{
             setHiddenSections()
             tableView.reloadData()
             vcController?.updateView()
         }
     }
+    var selectedForm: Form? {
+        if !forms.isEmpty && selectedFormIndex != nil {
+            return forms[selectedFormIndex]
+        }
+        return nil
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     var manager = JSONManager<[Form]>()
-    var forms: [Form] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    
     
     var numberOfShowingSection: Int {
         answeringSection == -1 ? 1 : 0
@@ -49,14 +58,12 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 vcController?.selectedNextItem = indexPath
             }
         }
-//        (parent as! ViewController).defaultSetting = true
-        
     }
     
     func setHiddenSections(){
         hiddenSections = []
-        if let selected = selectedForm, !forms.isEmpty{
-            for i in 0..<forms[selected].numberOfAnswered {
+        if let selected = selectedForm{
+            for i in 0..<selected.numberOfAnswered {
                 hiddenSections.insert(i)
             }
         }
@@ -72,17 +79,16 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if !forms.isEmpty {
-            let answeredList = forms[selectedForm].questions.compactMap{$0.isAnswered ? $0 : nil}
-            if forms[selectedForm].questions.count <= hiddenSections.count+1 {
+        if let selectedForm = selectedForm {
+            if selectedForm.questions.count <= hiddenSections.count+1 {
                 nextAndContinueButton.setTitle("Continuar", for: .normal)
             }else{
                 nextAndContinueButton.setTitle("Próxima", for: .normal)
             }
-            if forms[selectedForm].questions.count == answeredList.count {
-                return answeredList.count
+            if selectedForm.questions.count == selectedForm.numberOfAnswered {
+                return selectedForm.numberOfAnswered
             }
-            return answeredList.count + numberOfShowingSection
+            return selectedForm.numberOfAnswered + numberOfShowingSection
         }
         return 0
     }
@@ -91,18 +97,18 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         if hiddenSections.contains(section) {
             return 0
         }else {
-            return forms[selectedForm].questions[section].alternatives.count
+            return selectedForm?.questions[section].alternatives.count ?? 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlternativeCell.identifier, for: indexPath) as! AlternativeCell
-        let alternative = forms[selectedForm].questions[indexPath.section].alternatives[indexPath.row]
+        let alternative = selectedForm?.questions[indexPath.section].alternatives[indexPath.row]
         
-        cell.enunciate.text = alternative.enunciation
-        cell.complementaryText.text = alternative.text
-        cell.chosenIcon.image = !alternative.isChosen ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
-        cell.chosenIcon.tintColor = !alternative.isChosen ? .black : .green
+        cell.enunciate.text = alternative?.enunciation
+        cell.complementaryText.text = alternative?.text
+        cell.chosenIcon.image = alternative?.isChosen != true ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
+        cell.chosenIcon.tintColor = alternative?.isChosen != true ? .black : .green
         
         
         return cell
@@ -120,35 +126,36 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         headerView.contentView.backgroundColor = .white
         headerView.delegate = self
         headerView.sectionIndex = section
-        if !forms.isEmpty{
-            let question = forms[selectedForm].questions[section]
-            
-            headerView.question.text = question.enunciation
-            headerView.isAnsweredIcon.isHidden = !question.isAnswered
-            headerView.isAnsweredIcon.image = !question.isAnswered ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
-            headerView.isAnsweredIcon.tintColor = !question.isAnswered ? .black : .green
-            headerView.expandArrow.image = hiddenSections.contains(section) ? UIImage(named: "chevron.down") : UIImage(named: "chevron.up")
-            headerView.expandArrow.isHidden = !question.isAnswered
-        }
+        guard selectedForm != nil else {return headerView}
+        
+        let question = selectedForm!.questions[section]
+        
+        headerView.question.text = question.enunciation
+        headerView.isAnsweredIcon.isHidden = !question.isAnswered
+        headerView.isAnsweredIcon.image = !question.isAnswered ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
+        headerView.isAnsweredIcon.tintColor = !question.isAnswered ? .black : .green
+        headerView.expandArrow.image = hiddenSections.contains(section) ? UIImage(named: "chevron.down") : UIImage(named: "chevron.up")
+        headerView.expandArrow.isHidden = !question.isAnswered
         return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let question = forms[selectedForm].questions[indexPath.section]
+        guard selectedForm != nil else {return}
+        let question = selectedForm!.questions[indexPath.section]
         if !question.isAnswered {
             answeringSection = indexPath.section
             question.isAnswered = true
             question.alternatives[indexPath.row].isChosen = true
-            forms[selectedForm].result += question.alternatives[indexPath.row].value
+            selectedForm!.result += question.alternatives[indexPath.row].value
             vcController?.collectionView.reloadData()
         }else {
             if let chosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
                 if chosenIndex != indexPath.row {
                     question.alternatives[chosenIndex].isChosen = false
-                    forms[selectedForm].result -= question.alternatives[chosenIndex].value
+                    selectedForm!.result -= question.alternatives[chosenIndex].value
                     question.alternatives[indexPath.row].isChosen = true
-                    forms[selectedForm].result += question.alternatives[indexPath.row].value
+                    selectedForm!.result += question.alternatives[indexPath.row].value
                 }
             }
         }
@@ -159,7 +166,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
 
 extension CollapsableSectionViewController: TableHeaderFooterViewDelegate {
     func headerTapped(_ sectionIndex: Int) {
-        if forms[selectedForm].questions[sectionIndex].isAnswered {
+        if selectedForm?.questions[sectionIndex].isAnswered == true {
             if hiddenSections.contains(sectionIndex){
                 hiddenSections.remove(sectionIndex)
             }else {

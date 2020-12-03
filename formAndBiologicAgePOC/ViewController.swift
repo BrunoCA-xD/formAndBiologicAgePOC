@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         collectionView(collectionView, didSelectItemAt: selectedNextItem)
         colapsableSectionViewController = colapsableViewController
         colapsableViewController.vcController = self
-        colapsableSectionViewController?.selectedForm = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
+        colapsableSectionViewController?.selectedFormIndex = collectionView.indexPathsForSelectedItems?.first?.row ?? 3
         
         manager.getJSON(url: Bundle.main.url(forResource: "forms", withExtension: "json")) { (forms, error) in
             DispatchQueue.main.async {
@@ -126,7 +126,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         if let cell = collectionView.cellForItem(at: indexPath) as? PillarCollectionViewCell {
             cell.isCurrentPillar = true
             updateView()
-            self.colapsableSectionViewController?.selectedForm = indexPath.row
+            self.colapsableSectionViewController?.selectedFormIndex = indexPath.row
         }
     }
     
