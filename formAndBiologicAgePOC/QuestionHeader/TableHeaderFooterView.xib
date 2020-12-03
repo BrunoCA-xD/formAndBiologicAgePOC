@@ -48,7 +48,6 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="uf8-kB-0mP" firstAttribute="top" secondItem="WZp-PO-TLd" secondAttribute="top" id="Mxl-LQ-9Ek"/>
                         <constraint firstItem="uf8-kB-0mP" firstAttribute="leading" secondItem="WZp-PO-TLd" secondAttribute="leading" id="VgH-h2-pSg"/>
@@ -61,7 +60,6 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="dgz-kC-8y3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="WZp-PO-TLd" secondAttribute="trailing" constant="10" id="RHN-Ax-MKb"/>
                 <constraint firstItem="WZp-PO-TLd" firstAttribute="leading" secondItem="dIq-m3-pBq" secondAttribute="leading" constant="10" id="eOU-jc-4PP"/>
@@ -87,9 +85,6 @@
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
