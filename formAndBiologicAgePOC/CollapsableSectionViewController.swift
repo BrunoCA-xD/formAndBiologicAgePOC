@@ -15,6 +15,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     var selectedForm: Form? {
         didSet{
+            answeringSection = -1
             setHiddenSections()
             tableView.reloadData()
             vcController?.updateView()
@@ -62,6 +63,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
         tableView.registerHeaderFooter(nibClass: TableHeaderFooterView.self)
         tableView.registerCell(nibClass: AlternativeCell.self)
+        tableView.registerCell(nibClass: InputCell.self)
         tableView.estimatedRowHeight  = 200
         
     }
