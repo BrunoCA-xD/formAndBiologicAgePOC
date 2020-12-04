@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -145,6 +146,7 @@ Biológica</string>
                     </view>
                     <connections>
                         <outlet property="alimentationMandala" destination="ptm-cN-0W3" id="mRx-2f-Dqu"/>
+                        <outlet property="biologicalAgeLabel" destination="mOo-w9-bVz" id="rqn-hL-e28"/>
                         <outlet property="emotionalHealthMandala" destination="aBR-n5-WS3" id="awf-2p-c7P"/>
                         <outlet property="physicalActivityMandala" destination="3Fg-5u-pAg" id="zGk-56-egP"/>
                         <outlet property="sleepMandala" destination="cam-Xc-Is7" id="Yak-by-krU"/>
@@ -154,15 +156,63 @@ Biológica</string>
             </objects>
             <point key="canvasLocation" x="200.00000000000003" y="100.44642857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Mandala Info View Controller-->
         <scene sceneID="eBO-7l-wh7">
             <objects>
-                <viewController id="XMb-0x-4h6" sceneMemberID="viewController">
+                <viewController id="XMb-0x-4h6" customClass="MandalaInfoViewController" customModule="formAndBiologicAgePOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UHL-me-zgl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHX-Sg-doU">
+                                <rect key="frame" x="0.0" y="486" width="414" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaA-Yu-evP">
+                                        <rect key="frame" x="16" y="16" width="382" height="68"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Continuar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="32"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="E7u-ZZ-GA2"/>
+                                    <constraint firstAttribute="trailing" secondItem="EaA-Yu-evP" secondAttribute="trailing" constant="16" id="GR7-yY-tD3"/>
+                                    <constraint firstItem="EaA-Yu-evP" firstAttribute="leading" secondItem="YHX-Sg-doU" secondAttribute="leading" constant="16" id="Sgu-dD-zta"/>
+                                    <constraint firstItem="EaA-Yu-evP" firstAttribute="top" secondItem="YHX-Sg-doU" secondAttribute="top" constant="16" id="WaL-Ne-e92"/>
+                                    <constraint firstAttribute="bottom" secondItem="EaA-Yu-evP" secondAttribute="bottom" constant="16" id="gay-KE-Rcf"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SHq-dj-3iz">
+                                <rect key="frame" x="20" y="44" width="374" height="442"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XMb-0x-4h6" id="XGN-CW-2Gr"/>
+                                    <outlet property="delegate" destination="XMb-0x-4h6" id="7iv-zm-Pat"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SHq-dj-3iz" secondAttribute="trailing" id="RAy-y0-psy"/>
+                            <constraint firstItem="SHq-dj-3iz" firstAttribute="top" secondItem="UHL-me-zgl" secondAttribute="topMargin" id="VHh-rj-AQI"/>
+                            <constraint firstAttribute="bottom" secondItem="YHX-Sg-doU" secondAttribute="bottom" id="Wba-Ci-dpG"/>
+                            <constraint firstItem="YHX-Sg-doU" firstAttribute="leading" secondItem="UHL-me-zgl" secondAttribute="leading" id="dMh-6O-twE"/>
+                            <constraint firstItem="YHX-Sg-doU" firstAttribute="top" secondItem="SHq-dj-3iz" secondAttribute="bottom" id="flJ-IO-Vra"/>
+                            <constraint firstAttribute="trailing" secondItem="YHX-Sg-doU" secondAttribute="trailing" id="hJX-cL-iem"/>
+                            <constraint firstItem="SHq-dj-3iz" firstAttribute="leading" secondItem="UHL-me-zgl" secondAttribute="leadingMargin" id="htP-f3-uWz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="SHq-dj-3iz" id="2w0-rg-1P3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jt-gZ-Num" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,6 +224,9 @@ Biológica</string>
         <image name="bottom-right-bow" width="80" height="80"/>
         <image name="top-left-bow" width="80" height="80"/>
         <image name="top-right-bow" width="80" height="80"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -61,6 +61,11 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            if Debug.isDebugMode == true {
+                self.performSegue(withIdentifier: "goToMandala", sender: nil)
+            }
+        }
         let headerNib = UINib.init(nibName: "TableHeaderFooterView", bundle: .main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier:TableHeaderFooterView.identifier)
         let cellNib = UINib.init(nibName: "AlternativeCell", bundle: .main)
@@ -85,11 +90,15 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToMandala" {
             if let mandalaVC = segue.destination as? MandalaViewController {
-                for form in forms {
-                    let formResult = form.result
-                    let formPilar = form.pilar
-                    let mandala = Mandala(pilarName: formPilar, value: formResult)
-                    mandalaVC.mandalas.append(mandala)
+                if Debug.isDebugMode == true {
+                    mandalaVC.mandalas = Debug.mandalas
+                } else {
+                    for form in forms {
+                        let formResult = form.result
+                        let formPilar = form.pilar
+                        let mandala = Mandala(pilarName: formPilar, value: formResult)
+                        mandalaVC.mandalas.append(mandala)
+                    }
                 }
             }
         }

@@ -10,9 +10,9 @@ import UIKit
 class Mandala {
     var pilarName: String
     var value: Float
-    var color: MandalaColor?
+    var color: UIColor?
     
-    init(pilarName: String, value: Float, color: MandalaColor? = nil) {
+    init(pilarName: String, value: Float, color: UIColor? = nil) {
         self.pilarName = pilarName
         self.value = value
         self.color = color
@@ -28,7 +28,7 @@ enum MandalaColor: String {
 
 class MandalaViewController: UIViewController {
     var mandalas: [Mandala] = []
-    private var mandalasColor: [MandalaColor] = []
+    private var mandalasColor: [UIColor] = []
     var userBiologicalAge: Float = 22.0
 
     
@@ -46,23 +46,23 @@ class MandalaViewController: UIViewController {
     }
     
     private func updateLabels() {
-        emotionalHealthMandala.image = emotionalHealthMandala.image?.withRenderingMode(.alwaysTemplate)
-        emotionalHealthMandala.tintColor = UIColor.yellow
         physicalActivityMandala.image = physicalActivityMandala.image?.withRenderingMode(.alwaysTemplate)
-        physicalActivityMandala.tintColor = UIColor.yellow
-        sleepMandala.image = sleepMandala.image?.withRenderingMode(.alwaysTemplate)
-        sleepMandala.tintColor = UIColor.yellow
+        physicalActivityMandala.tintColor = mandalasColor[0]
         alimentationMandala.image = alimentationMandala.image?.withRenderingMode(.alwaysTemplate)
-        alimentationMandala.tintColor = UIColor.yellow
-        biologicalAgeLabel.text = "Idade Biológica: \(userBiologicalAge)"
+        alimentationMandala.tintColor = mandalasColor[1]
+        sleepMandala.image = sleepMandala.image?.withRenderingMode(.alwaysTemplate)
+        sleepMandala.tintColor = mandalasColor[2]
+        emotionalHealthMandala.image = emotionalHealthMandala.image?.withRenderingMode(.alwaysTemplate)
+        emotionalHealthMandala.tintColor = mandalasColor[3]
+        biologicalAgeLabel.text = "\(userBiologicalAge) \n anos"
     }
     
     private func calculateMandalaColors() {
-        var activityMandalaColor: MandalaColor!
-        var alimentationMandalaColor: MandalaColor!
-        var sleepMandalaColor: MandalaColor!
-        var emotionalHealthMandalaColor: MandalaColor!
-        var biologicalAgeMandalaColor: MandalaColor!
+        var activityMandalaColor: UIColor!
+        var alimentationMandalaColor: UIColor!
+        var sleepMandalaColor: UIColor!
+        var emotionalHealthMandalaColor: UIColor!
+        var biologicalAgeMandalaColor: UIColor!
         
         for index in 0...4 {
             let mandala = mandalas[index]
@@ -93,7 +93,7 @@ class MandalaViewController: UIViewController {
     
     /// Calculates the color of the activity mandala.
     /// - Parameter value: Total value of the answered questions.
-    private func calculateActivityMandala(value: Float) -> MandalaColor {
+    private func calculateActivityMandala(value: Float) -> UIColor {
         switch value {
         case 0.0:
             return .red
@@ -114,7 +114,7 @@ class MandalaViewController: UIViewController {
     
     /// Calculates the color of the alimentation mandala.
     /// - Parameter value: Total value of the answered questions.
-    private func calculateAlimentationMandala(value: Float) -> MandalaColor {
+    private func calculateAlimentationMandala(value: Float) -> UIColor {
         switch value {
         case _ where value <= 15:
             return .green
@@ -131,7 +131,7 @@ class MandalaViewController: UIViewController {
     
     /// Calculates the color of the sleep mandala.
     /// - Parameter value: Total value of the answered questions.
-    private func calculateSleepMandala(value: Float) -> MandalaColor {
+    private func calculateSleepMandala(value: Float) -> UIColor {
         switch value {
         case _ where value >= 33 && value <= 44:
             return .green
@@ -148,7 +148,7 @@ class MandalaViewController: UIViewController {
     
     /// Calculates the color of the sleep mandala.
     /// - Parameter value: Total value of the answered questions.
-    private func calculateEmotinalHealthMandala(value: Float) -> MandalaColor {
+    private func calculateEmotinalHealthMandala(value: Float) -> UIColor {
         switch value {
         case _ where value <= 10:
             return .green
@@ -166,7 +166,7 @@ class MandalaViewController: UIViewController {
     
     /// Calculates the color of the sleep mandala.
     /// - Parameter value: Total value of the answered questions.
-    private func calculateBiologicalAgeMandala(mandalaColors: [MandalaColor]) -> MandalaColor {
+    private func calculateBiologicalAgeMandala(mandalaColors: [UIColor]) -> UIColor {
         var value: Int = 0
         for color in mandalaColors {
             switch color {
@@ -178,6 +178,8 @@ class MandalaViewController: UIViewController {
                 value = 1
             case .red:
                 value = 1
+            default:
+                fatalError("Different color found: \(color)")
             }
         }
         // TODO: Needs additional logic to return the right color

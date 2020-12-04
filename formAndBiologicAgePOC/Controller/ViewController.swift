@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionTimeline: UILabel!
     @IBOutlet weak var pillarIcon: UIImageView!
     
