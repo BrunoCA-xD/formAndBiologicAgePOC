@@ -35,9 +35,13 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 answeringSection = -1
                 tableView.reloadData()
             }
-        }else{
+        } else {
             
-            if let item = vcController?.selectedNextItem{
+            if let item = vcController?.selectedNextItem {
+                guard item.row != 4 else {
+                    performSegue(withIdentifier: "goToMandala", sender: nil)
+                    return
+                }
                 let indexPath = IndexPath(row: item.row+1, section: 0)
                 answeringSection = -1
                 vcController?.selectedNextItem = indexPath
@@ -72,6 +76,20 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 if let forms = forms {
                     self.forms = forms
                     self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToMandala" {
+            if let mandalaVC = segue.destination as? MandalaViewController {
+                for form in forms {
+                    let formResult = form.result
+                    let formPilar = form.pilar
+                    let mandala = Mandala(pilarName: formPilar, value: formResult)
+                    mandalaVC.mandalas.append(mandala)
                 }
             }
         }
