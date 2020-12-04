@@ -60,10 +60,8 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let headerNib = UINib.init(nibName: "TableHeaderFooterView", bundle: .main)
-        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier:TableHeaderFooterView.identifier)
-        let cellNib = UINib.init(nibName: "AlternativeCell", bundle: .main)
-        tableView.register(cellNib, forCellReuseIdentifier: AlternativeCell.identifier)
+        tableView.registerHeaderFooter(nibClass: TableHeaderFooterView.self)
+        tableView.registerCell(nibClass: AlternativeCell.self)
         tableView.estimatedRowHeight  = 200
         
     }
@@ -104,7 +102,8 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlternativeCell.identifier, for: indexPath) as! AlternativeCell
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: AlternativeCell.self)
+        
         let alternative = selectedForm?.questions[indexPath.section].alternatives[indexPath.row]
         
         cell.enunciate.text = alternative?.enunciation

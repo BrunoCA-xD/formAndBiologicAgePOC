@@ -7,12 +7,9 @@
 
 import UIKit
 
-class AlternativeCell: UITableViewCell,Identifiable {
+class AlternativeCell: UITableViewCell{
    
     @IBOutlet weak var layoutView: UIView!
-    static var identifier: String {
-        String(describing: AlternativeCell.self)
-    }
     @IBOutlet weak var chosenIcon: UIImageView!
     @IBOutlet weak var enunciate: UILabel!
     @IBOutlet weak var complementaryText: UILabel!
@@ -26,6 +23,5 @@ class AlternativeCell: UITableViewCell,Identifiable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10))
     }
 }

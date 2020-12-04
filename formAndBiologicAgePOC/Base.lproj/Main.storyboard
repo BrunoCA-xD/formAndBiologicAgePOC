@@ -63,7 +63,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="physical-activity-icon" translatesAutoresizingMaskIntoConstraints="NO" id="K3I-Tw-gjs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K3I-Tw-gjs">
                                 <rect key="frame" x="132" y="240.5" width="150" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="HA1-v8-ZrD"/>
@@ -191,7 +191,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="physical-activity-icon" width="66" height="77"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

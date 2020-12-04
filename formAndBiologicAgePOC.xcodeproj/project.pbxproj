@@ -12,6 +12,10 @@
 		563F7982256D89AC004F6155 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7981256D89AC004F6155 /* JSONManager.swift */; };
 		563F7985256D8A67004F6155 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7984256D8A67004F6155 /* QueueManager.swift */; };
 		563F7994256D97FC004F6155 /* forms.json in Resources */ = {isa = PBXBuildFile; fileRef = 563F7993256D97FC004F6155 /* forms.json */; };
+		5651DB4B257AC100007A5BB6 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651DB49257AC100007A5BB6 /* InputCell.swift */; };
+		5651DB4C257AC100007A5BB6 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5651DB4A257AC100007A5BB6 /* InputCell.xib */; };
+		5651DB51257AC1E3007A5BB6 /* UITableView+IdentifiableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651DB50257AC1E3007A5BB6 /* UITableView+IdentifiableView.swift */; };
+		5651DB56257AC230007A5BB6 /* IdentifiableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651DB55257AC230007A5BB6 /* IdentifiableView.swift */; };
 		565A401825683F4E00591112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401725683F4E00591112 /* AppDelegate.swift */; };
 		565A401A25683F4E00591112 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401925683F4E00591112 /* SceneDelegate.swift */; };
 		565A401C25683F4E00591112 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A401B25683F4E00591112 /* ViewController.swift */; };
@@ -34,6 +38,10 @@
 		563F7981256D89AC004F6155 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		563F7984256D8A67004F6155 /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		563F7993256D97FC004F6155 /* forms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forms.json; sourceTree = "<group>"; };
+		5651DB49257AC100007A5BB6 /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
+		5651DB4A257AC100007A5BB6 /* InputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputCell.xib; sourceTree = "<group>"; };
+		5651DB50257AC1E3007A5BB6 /* UITableView+IdentifiableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+IdentifiableView.swift"; sourceTree = "<group>"; };
+		5651DB55257AC230007A5BB6 /* IdentifiableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableView.swift; sourceTree = "<group>"; };
 		565A401425683F4E00591112 /* formAndBiologicAgePOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = formAndBiologicAgePOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		565A401725683F4E00591112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		565A401925683F4E00591112 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +80,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5651DB4E257AC15C007A5BB6 /* InputCell */ = {
+			isa = PBXGroup;
+			children = (
+				5651DB49257AC100007A5BB6 /* InputCell.swift */,
+				5651DB4A257AC100007A5BB6 /* InputCell.xib */,
+			);
+			path = InputCell;
+			sourceTree = "<group>";
+		};
+		5651DB53257AC223007A5BB6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5651DB50257AC1E3007A5BB6 /* UITableView+IdentifiableView.swift */,
+				5651DB55257AC230007A5BB6 /* IdentifiableView.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		565A400B25683F4E00591112 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +122,7 @@
 				56857B74256C3F6700EFD62C /* Model */,
 				2FE70408256EBF1700B45F5C /* View */,
 				565A401725683F4E00591112 /* AppDelegate.swift */,
+				5651DB53257AC223007A5BB6 /* Util */,
 				563F7981256D89AC004F6155 /* JSONManager.swift */,
 				565A401925683F4E00591112 /* SceneDelegate.swift */,
 				565A401B25683F4E00591112 /* ViewController.swift */,
@@ -106,6 +133,7 @@
 				565A402525683F5100591112 /* Info.plist */,
 				56683227256EDFEE005157B3 /* CollapsableSectionViewController.swift */,
 				56CDC0B9257025C800224F9A /* QuestionHeader */,
+				5651DB4E257AC15C007A5BB6 /* InputCell */,
 			);
 			path = formAndBiologicAgePOC;
 			sourceTree = "<group>";
@@ -201,6 +229,7 @@
 				565A402125683F5100591112 /* Assets.xcassets in Resources */,
 				565A401F25683F4E00591112 /* Main.storyboard in Resources */,
 				AD87037D256EFFAA00C10AB6 /* AlternativeCell.xib in Resources */,
+				5651DB4C257AC100007A5BB6 /* InputCell.xib in Resources */,
 				56CDC0B6257025BC00224F9A /* TableHeaderFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,12 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE7040F256EBF5C00B45F5C /* PillarCollectionViewCell.swift in Sources */,
+				5651DB56257AC230007A5BB6 /* IdentifiableView.swift in Sources */,
 				565A401C25683F4E00591112 /* ViewController.swift in Sources */,
 				563F7982256D89AC004F6155 /* JSONManager.swift in Sources */,
 				56857B76256C3F7B00EFD62C /* Question.swift in Sources */,
 				56683230256EE762005157B3 /* TableHeaderFooterView.swift in Sources */,
+				5651DB4B257AC100007A5BB6 /* InputCell.swift in Sources */,
 				56683228256EDFEE005157B3 /* CollapsableSectionViewController.swift in Sources */,
 				565A401825683F4E00591112 /* AppDelegate.swift in Sources */,
+				5651DB51257AC1E3007A5BB6 /* UITableView+IdentifiableView.swift in Sources */,
 				56857B7A256C3F8B00EFD62C /* Alternative.swift in Sources */,
 				AD87037C256EFFAA00C10AB6 /* AlternativeCell.swift in Sources */,
 				563F7985256D8A67004F6155 /* QueueManager.swift in Sources */,
