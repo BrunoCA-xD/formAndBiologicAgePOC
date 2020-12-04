@@ -75,7 +75,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             nextAndContinueButton.backgroundColor = .lightGray
         }else {
             nextAndContinueButton.isEnabled = true
-            nextAndContinueButton.backgroundColor = .blue
+            nextAndContinueButton.backgroundColor = .systemBlue
         }
         if selectedForm!.questions.count <= hiddenSections.count+1 {
             nextAndContinueButton.setTitle("Continuar", for: .normal)

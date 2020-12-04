@@ -5,6 +5,7 @@
         "questions": [{
             "indice": 0,
             "enunciation": "Como você classifica seu nível de atividade física?",
+            "canHaveMultipleAnswers": false,
             "alternatives": [
                 {
                     "enunciation": "Sedentário",
@@ -40,6 +41,7 @@
             {
                 "indice": 0,
                 "enunciation": "Quantas refeições principais (café da manhã, almoço e jantar) você faz por dia?",
+                "canHaveMultipleAnswers": false,
                 "alternatives": [
                     {
                         "enunciation": "1",
@@ -70,6 +72,7 @@
             {
                 "indice": 1,
                 "enunciation": "Você costuma comer entre as refeições?",
+                "canHaveMultipleAnswers": false,
                 "alternatives": [
                     {
                         "enunciation": "Não",
@@ -100,6 +103,7 @@
             {
                 "indice": 2,
                 "enunciation": "O que você prefere consumir usualmente?",
+                "canHaveMultipleAnswers": false,
                 "alternatives": [
                     {
                         "enunciation": "Alimentos frescos",
@@ -124,6 +128,7 @@
             {
                 "indice": 3,
                 "enunciation": "Como você faz a preparação dos seus pratos?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -155,6 +160,7 @@
             {
                 "indice": 4,
                 "enunciation": "O que você pensa ao fazer um prato?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -186,6 +192,7 @@
             {
                 "indice": 5,
                 "enunciation": "Quanto de água você bebe por dia?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -217,6 +224,7 @@
             {
                 "indice": 6,
                 "enunciation": "Quando você costuma comer?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -248,6 +256,7 @@
             {
                 "indice": 7,
                 "enunciation": "Você costuma comer até quanto?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -279,6 +288,7 @@
             {
                 "indice": 8,
                 "enunciation": "Com qual frequência você consome bebida alcoólica?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -310,6 +320,7 @@
             {
                 "indice": 9,
                 "enunciation": "Que tipo de atenção você tem  quando consome algum alimento?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -341,6 +352,7 @@
             {
                 "indice": 10,
                 "enunciation": "Como você costuma comer?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -372,6 +384,7 @@
             {
                 "indice": 11,
                 "enunciation": "Com qual frequência você come frutas e legumes?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -403,6 +416,7 @@
             {
                 "indice": 12,
                 "enunciation": "O que você sente quando come?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -434,6 +448,7 @@
             {
                 "indice": 13,
                 "enunciation": "Qual a sua preocupação quando vai comer?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -471,6 +486,7 @@
             {
                 "indice": 14,
                 "enunciation": "Como você pensa que é a melhor forma de emagrecer?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -516,6 +532,7 @@
             {
                 "indice": 0,
                 "enunciation": "Ao deitar e apagar as luzes você demora mais do que 30 minutos para dormir?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -547,6 +564,7 @@
             {
                 "indice": 1,
                 "enunciation": "Acorda com frequência durante a noite?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -578,6 +596,7 @@
             {
                 "indice": 2,
                 "enunciation": "Quando acorda, tem dificuldade para pegar no sono novamente?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -609,6 +628,7 @@
             {
                 "indice": 3,
                 "enunciation": "Seu sono é agitado?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -640,6 +660,7 @@
             {
                 "indice": 4,
                 "enunciation": "Tem dificuldade para se levantar de manhã?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -671,6 +692,7 @@
             {
                 "indice": 5,
                 "enunciation": "Sente-se cansado durante o dia, com pouca atenção, foco ou concentração nas atividades diárias?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -702,6 +724,7 @@
             {
                 "indice": 6,
                 "enunciation": "Já sofreu algum acidente ou esteve perto disso, por ter dormido pouco?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -733,6 +756,7 @@
             {
                 "indice": 7,
                 "enunciation": "Adormece facilmente quando vê televisão ou lê alguma coisa?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -764,6 +788,7 @@
             {
                 "indice": 8,
                 "enunciation": "Você faz pequenos cochilos durante o dia?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -801,6 +826,7 @@
             {
                 "indice": 9,
                 "enunciation": "Sofre jet-lag em função de suas atividades?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -832,6 +858,7 @@
             {
                 "indice": 10,
                 "enunciation": "Dorme mais no fim de semana, que em dias de semana?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -870,6 +897,7 @@
             {
                 "indice": 0,
                 "enunciation": "Como você se sente na maior arte do tempo?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -919,6 +947,7 @@
             {
                 "indice": 1,
                 "enunciation": "O que você sente quando está nervoso?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -968,6 +997,7 @@
             {
                 "indice": 2,
                 "enunciation": "Quais manias você possui?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -1017,6 +1047,7 @@
             {
                 "indice": 3,
                 "enunciation": "Com relação à sua saúde, você apresenta quais sintomas?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -1066,6 +1097,7 @@
             {
                 "indice": 4,
                 "enunciation": "Em repouso, você apresenta quais sintomas?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -1115,6 +1147,7 @@
             {
                 "indice": 5,
                 "enunciation": "Quais sintomas você costuma ter?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -1164,6 +1197,7 @@
             {
                 "indice": 6,
                 "enunciation": "Quais reaçõs você tem em situações de tensão?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -1213,6 +1247,7 @@
             {
                 "indice": 7,
                 "enunciation": "Quando os sintomas marcados nas perguntas acima, surgiram?",
+                "canHaveMultipleAnswers": true,
                 "alternatives":
                 [
                     {
@@ -1257,6 +1292,7 @@
             {
                 "indice": 0,
                 "enunciation": "Qual é a sua circunferência abdominal?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1288,6 +1324,7 @@
             {
                 "indice": 1,
                 "enunciation": "Qual opção abaixo mais se adequa a você em relação a tabagismo?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1319,6 +1356,7 @@
             {
                 "indice": 2,
                 "enunciation": "Tem diagnóstico médico de Hipertensão Arterial ou uso de medicamento anti-hipertensivo",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1338,6 +1376,7 @@
             {
                 "indice": 3,
                 "enunciation": "Se souber insira sua pressão arterial abaixo:",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1357,6 +1396,7 @@
             {
                 "indice": 4,
                 "enunciation": "Tem diagnóstico médico de aumento do colesterol no sangue ou uso de medicação para controle dos níveis de colesterol ou de triglicérides",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1382,6 +1422,7 @@
             {
                 "indice": 5,
                 "enunciation": "Se souber insira sua taxa de colesterol abaixo:",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1401,6 +1442,7 @@
             {
                 "indice": 6,
                 "enunciation": "Se souber insira sua taxa de triglicérides abaixo:",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1420,6 +1462,7 @@
             {
                 "indice": 7,
                 "enunciation": "Calcule seu IMC:",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1445,6 +1488,7 @@
             {
                 "indice": 8,
                 "enunciation": "Qual é o seu IMC?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1476,6 +1520,7 @@
             {
                 "indice": 9,
                 "enunciation": "É Obeso?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1495,6 +1540,7 @@
             {
                 "indice": 10,
                 "enunciation": "Tem Diabetes",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1514,6 +1560,7 @@
             {
                 "indice": 11,
                 "enunciation": "Se souber insira aqui sua glicemia",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1533,6 +1580,7 @@
             {
                 "indice": 12,
                 "enunciation": "Existe alguma história familiar (pais e irmãos) de doença cardíaca?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1552,6 +1600,7 @@
             {
                 "indice": 13,
                 "enunciation": "Você possui algum problema ósseo ou articular ou muscular grave?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
@@ -1570,7 +1619,8 @@
             },
             {
                 "indice": 14,
-                "enunciation": "Você já tece algum tipo de câncer?",
+                "enunciation": "Você já teve algum tipo de câncer?",
+                "canHaveMultipleAnswers": false,
                 "alternatives":
                 [
                     {
