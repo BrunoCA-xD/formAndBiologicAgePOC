@@ -147,18 +147,42 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         configureButton()
         
         let question = selectedForm!.questions[indexPath.section]
+        let selectingAlternative = question.alternatives[indexPath.row]
+        
         if !question.isAnswered {
             answeringSection = indexPath.section
-            question.alternatives[indexPath.row].isChosen = true
+            selectingAlternative.isChosen = true
             vcController?.collectionView.reloadData()
         }else {
-            if let chosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
-                if chosenIndex != indexPath.row {
-                    question.alternatives[chosenIndex].isChosen = false
-                    question.alternatives[indexPath.row].isChosen = true
+            if question.canHaveMultipleAnswers {
+                if selectingAlternative.isChosen {
+                    selectingAlternative.isChosen = false
+                    
+                    if !question.isAnswered {
+                        answeringSection = -1
+                    }
+                    
+                }else {
+                    let none = question.alternatives.last
+                    if none?.isChosen == true{
+                        none?.isChosen = false
+                    }else {
+                        if selectingAlternative == none {
+                            question.alternatives.forEach{$0.isChosen = false}
+                        }
+                    }
+                    selectingAlternative.isChosen = true
                 }
+            }else {
+                if let alreadyChosenIndex = question.alternatives.firstIndex(where:{$0.isChosen}){
+                    if alreadyChosenIndex != indexPath.row {
+                        question.alternatives[alreadyChosenIndex].isChosen = false
+                    }
+                }
+                selectingAlternative.isChosen = true
             }
         }
+        
         tableView.reloadData()
     }
 }

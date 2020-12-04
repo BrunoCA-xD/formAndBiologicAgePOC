@@ -7,7 +7,11 @@
 
 import Foundation
 
-class Alternative: Codable {
+class Alternative: Codable, Equatable {
+    static func == (lhs: Alternative, rhs: Alternative) -> Bool {
+        lhs.enunciation == rhs.enunciation && lhs.value == rhs.value && lhs.isChosen == rhs.isChosen
+    }
+    
     
     init(enunciation: String,text: String, value: Float, isChosen: Bool) {
         self.text = text
