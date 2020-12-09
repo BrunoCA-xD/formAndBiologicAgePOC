@@ -1,0 +1,30 @@
+[
+    {
+        "mandala": "Atividade física",
+        "greenText": "PARABÉNS! Você é uma pessoa saudável e que se movimenta bastante, continue assim!",
+        "yellowText": "PODE MELHORAR: Você faz algum movimento físico ou tem alguma atividade física, mas pode ficar melhor. Sua saúde precisa que você se emprenhe mais!",
+        "orangeText": "ATENÇÃO! Você faz pouco movimento físico, sua saúde ainda não consegue colher os benefícios que a atividade física promove. Hora de aumentar esse nível de movimentação!",
+        "redText": "HORA DE MUDAR: Você está sedentário. Isso traz enormes prejuízos para a saúde. Seu corpo precisa que você mude de atitude já!"
+    },
+    {
+        "mandala": "Alimentação",
+        "greenText": "PARABÉNS! Sua alimentação está ótima. Você tem consciência do que come, faz boas escolhas, coma com parcimônia e prazer. Continue nesse caminho!",
+        "yellowText": "Você está se alimentando bem. Continue assim, pensando que sempre PODE MELHORAR. Fazer melhores escolhas, priorizar os alimentos mais nutritivos, mas claro, sem deixar de cometer os deslizes ocasionais e sentir prazer com a comida.",
+        "orangeText": "ATENÇÃO: você precisa ficar atento às escolhas, procurar ouvir mais seus corpo, suas necessidades, e saber que o alimento é nosso combustível, e quanto melhor for sua qualidade, melhor será para nossa saúde.",
+        "redText": "É HORA DE MUDAR, está na hora de repensar sua alimentação. Comer com culpa, por impulso, comer sem critério, esses hábitos são os que devemos evitar. O ideal é não ser radical, nem pra mais e nem pra menos, e melhorar sua relação com a comida, com suas escolhas."
+    },
+    {
+        "mandala": "Sono",
+        "greenText": "PARABÉNS! Seu sono está absolutamente saudável e recuperado!",
+        "yellowText": "Seu sono está bom, mas PODE MELHORAR. Atividade física regular, horários regrados, ambiente tranquilo, alimentação leve a noite, são algumas atitudes que vão ajudar.",
+        "orangeText": "Você precisa ter ATENÇÃO ao seu sono. Ele não está cumprindo o papel reparador que deveria, para que você acorde no dia seguinte com disposição e vontade de realizar suas atividades. Atividade física regular, horários regrados, ambiente tranquilo, alimentação leve a noite, são algumas atitudes que vão ajudar.",
+        "redText": "Você está com graves problemas de sono. Está na HORA DE MUDAR. Talvez até mesmo com ajuda de algum profissional. Seu sono apresenta distúrbios e isso pode causar grandes prejuízos para sua saúde. Atividade física regular, horários regrados, ambiente tranquilo, alimentação leve a noite, são algumas atitudes que vão ajudar."
+    },
+    {
+       "mandala": "Saúde emocional",
+       "greenText": "PARABÉNS! Você não apresenta sintomas significativos que comprometam sua saúde emocional.",
+       "yellowText": "PODE MELHORAR. Você tem poucos sinais de estresse emocional e ansiedade. Pense em não deixar essa peteca cair, mas sim, subir e ficar ainda mais leve.",
+       "orangeText": "ATENÇÃO! Hora de pensar nas suas emocionais e tentar ter maior controle sobre elas.",
+       "redText": "HORA DE MUDAR. Você precisa mudar urgentemente a maneira como lida com as emoções e principalmente como reage aos fatos que acontecem em sua vida."
+    }
+]

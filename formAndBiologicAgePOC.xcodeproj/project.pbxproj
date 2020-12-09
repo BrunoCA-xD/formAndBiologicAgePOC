@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2F58BA6D2581182200321D84 /* MandalaCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58BA6C2581182200321D84 /* MandalaCalculator.swift */; };
 		2F58BA702581185C00321D84 /* Mandala.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58BA6F2581185C00321D84 /* Mandala.swift */; };
+		2F58BA7425813A7F00321D84 /* MandalaInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58BA7325813A7F00321D84 /* MandalaInformation.swift */; };
+		2F58BA7725813C2F00321D84 /* mandalas-information.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F58BA7625813C2F00321D84 /* mandalas-information.json */; };
 		2F938BA82576A76400C4E490 /* Mandala.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F938BA72576A76400C4E490 /* Mandala.storyboard */; };
 		2F938BB52576C52200C4E490 /* MandalaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F938BB42576C52200C4E490 /* MandalaViewController.swift */; };
 		2F93A521257AA9CD00E11495 /* MandalaInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A51F257AA9CD00E11495 /* MandalaInfoTableViewCell.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		2F58BA6C2581182200321D84 /* MandalaCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaCalculator.swift; sourceTree = "<group>"; };
 		2F58BA6F2581185C00321D84 /* Mandala.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mandala.swift; sourceTree = "<group>"; };
+		2F58BA7325813A7F00321D84 /* MandalaInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaInformation.swift; sourceTree = "<group>"; };
+		2F58BA7625813C2F00321D84 /* mandalas-information.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mandalas-information.json"; sourceTree = "<group>"; };
 		2F938BA72576A76400C4E490 /* Mandala.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mandala.storyboard; sourceTree = "<group>"; };
 		2F938BB42576C52200C4E490 /* MandalaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaViewController.swift; sourceTree = "<group>"; };
 		2F93A51F257AA9CD00E11495 /* MandalaInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		2F938BAD2576C3EF00C4E490 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F58BA7625813C2F00321D84 /* mandalas-information.json */,
 				563F7993256D97FC004F6155 /* forms.json */,
 			);
 			path = Resources;
@@ -218,6 +223,7 @@
 				56857B79256C3F8B00EFD62C /* Alternative.swift */,
 				56857B7C256C422300EFD62C /* Form.swift */,
 				2F58BA6F2581185C00321D84 /* Mandala.swift */,
+				2F58BA7325813A7F00321D84 /* MandalaInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				2F93A522257AA9CD00E11495 /* MandalaInfoTableViewCell.xib in Resources */,
 				2F93A534257ACA1600E11495 /* ManadalaTableViewCell.xib in Resources */,
 				2F938BA82576A76400C4E490 /* Mandala.storyboard in Resources */,
+				2F58BA7725813C2F00321D84 /* mandalas-information.json in Resources */,
 				563F7994256D97FC004F6155 /* forms.json in Resources */,
 				565A402125683F5100591112 /* Assets.xcassets in Resources */,
 				5668322B256EE02A005157B3 /* Second.storyboard in Resources */,
@@ -335,6 +342,7 @@
 				565A401A25683F4E00591112 /* SceneDelegate.swift in Sources */,
 				2F93A521257AA9CD00E11495 /* MandalaInfoTableViewCell.swift in Sources */,
 				2F93A52D257AB3AB00E11495 /* Debug.swift in Sources */,
+				2F58BA7425813A7F00321D84 /* MandalaInformation.swift in Sources */,
 				56857B7D256C422300EFD62C /* Form.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

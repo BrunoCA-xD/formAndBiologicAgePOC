@@ -10,6 +10,8 @@ import UIKit
 class MandalaInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var wrapperView: UIView!
+    @IBOutlet weak var mandalaName: UILabel!
+    @IBOutlet weak var mandalaInformation: UITextView!
     
     static var identifier: String {
         String(describing: MandalaInfoTableViewCell.self)

@@ -57,6 +57,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="mandalaInformation" destination="2U9-AI-pBc" id="4He-7w-ukr"/>
+                <outlet property="mandalaName" destination="x5i-9e-fmK" id="J6P-Za-QZA"/>
                 <outlet property="wrapperView" destination="QJH-5p-FZf" id="jAe-yU-tIl"/>
             </connections>
             <point key="canvasLocation" x="54.347826086956523" y="109.82142857142857"/>
