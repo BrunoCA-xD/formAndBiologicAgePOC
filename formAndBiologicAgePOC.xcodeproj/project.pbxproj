@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F58BA6D2581182200321D84 /* MandalaCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58BA6C2581182200321D84 /* MandalaCalculator.swift */; };
+		2F58BA702581185C00321D84 /* Mandala.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58BA6F2581185C00321D84 /* Mandala.swift */; };
 		2F938BA82576A76400C4E490 /* Mandala.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F938BA72576A76400C4E490 /* Mandala.storyboard */; };
 		2F938BB52576C52200C4E490 /* MandalaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F938BB42576C52200C4E490 /* MandalaViewController.swift */; };
 		2F93A521257AA9CD00E11495 /* MandalaInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A51F257AA9CD00E11495 /* MandalaInfoTableViewCell.swift */; };
 		2F93A522257AA9CD00E11495 /* MandalaInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A520257AA9CD00E11495 /* MandalaInfoTableViewCell.xib */; };
-		2F93A527257AB05F00E11495 /* MandalaInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A526257AB05F00E11495 /* MandalaInfoViewController.swift */; };
 		2F93A52D257AB3AB00E11495 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A52C257AB3AB00E11495 /* Debug.swift */; };
 		2F93A533257ACA1600E11495 /* ManadalaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A531257ACA1600E11495 /* ManadalaTableViewCell.swift */; };
 		2F93A534257ACA1600E11495 /* ManadalaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F93A532257ACA1600E11495 /* ManadalaTableViewCell.xib */; };
@@ -38,11 +39,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F58BA6C2581182200321D84 /* MandalaCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaCalculator.swift; sourceTree = "<group>"; };
+		2F58BA6F2581185C00321D84 /* Mandala.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mandala.swift; sourceTree = "<group>"; };
 		2F938BA72576A76400C4E490 /* Mandala.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mandala.storyboard; sourceTree = "<group>"; };
 		2F938BB42576C52200C4E490 /* MandalaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaViewController.swift; sourceTree = "<group>"; };
 		2F93A51F257AA9CD00E11495 /* MandalaInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaInfoTableViewCell.swift; sourceTree = "<group>"; };
 		2F93A520257AA9CD00E11495 /* MandalaInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MandalaInfoTableViewCell.xib; sourceTree = "<group>"; };
-		2F93A526257AB05F00E11495 /* MandalaInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandalaInfoViewController.swift; sourceTree = "<group>"; };
 		2F93A52C257AB3AB00E11495 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		2F93A531257ACA1600E11495 /* ManadalaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManadalaTableViewCell.swift; sourceTree = "<group>"; };
 		2F93A532257ACA1600E11495 /* ManadalaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManadalaTableViewCell.xib; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 				565A401B25683F4E00591112 /* ViewController.swift */,
 				56683227256EDFEE005157B3 /* CollapsableSectionViewController.swift */,
 				2F938BB42576C52200C4E490 /* MandalaViewController.swift */,
-				2F93A526257AB05F00E11495 /* MandalaInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +152,7 @@
 			children = (
 				2F938BB22576C4AB00C4E490 /* Manager */,
 				2F93A52C257AB3AB00E11495 /* Debug.swift */,
+				2F58BA6C2581182200321D84 /* MandalaCalculator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 				56857B75256C3F7B00EFD62C /* Question.swift */,
 				56857B79256C3F8B00EFD62C /* Alternative.swift */,
 				56857B7C256C422300EFD62C /* Form.swift */,
+				2F58BA6F2581185C00321D84 /* Mandala.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,8 @@
 				2F938BB52576C52200C4E490 /* MandalaViewController.swift in Sources */,
 				565A401C25683F4E00591112 /* ViewController.swift in Sources */,
 				563F7982256D89AC004F6155 /* JSONManager.swift in Sources */,
+				2F58BA6D2581182200321D84 /* MandalaCalculator.swift in Sources */,
+				2F58BA702581185C00321D84 /* Mandala.swift in Sources */,
 				56857B76256C3F7B00EFD62C /* Question.swift in Sources */,
 				56683230256EE762005157B3 /* TableHeaderFooterView.swift in Sources */,
 				56683228256EDFEE005157B3 /* CollapsableSectionViewController.swift in Sources */,
@@ -330,7 +335,6 @@
 				565A401A25683F4E00591112 /* SceneDelegate.swift in Sources */,
 				2F93A521257AA9CD00E11495 /* MandalaInfoTableViewCell.swift in Sources */,
 				2F93A52D257AB3AB00E11495 /* Debug.swift in Sources */,
-				2F93A527257AB05F00E11495 /* MandalaInfoViewController.swift in Sources */,
 				56857B7D256C422300EFD62C /* Form.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
