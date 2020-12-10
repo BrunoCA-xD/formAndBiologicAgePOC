@@ -42,9 +42,13 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 tableView.reloadData()
                 vcController?.updateView()
             }
-        }else{
+        } else {
             
-            if let item = vcController?.selectedNextItem{
+            if let item = vcController?.selectedNextItem {
+                guard item.row != 4 else {
+                    performSegue(withIdentifier: "goToMandala", sender: nil)
+                    return
+                }
                 let indexPath = IndexPath(row: item.row+1, section: 0)
                 answeringSection = -1
                 vcController?.selectedNextItem = indexPath
@@ -65,6 +69,11 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         tableView.registerHeaderFooter(nibClass: TableHeaderFooterView.self)
         tableView.registerCell(nibClass: AlternativeCell.self)
         tableView.registerCell(nibClass: InputCell.self)
+        DispatchQueue.main.async {
+            if Debug.isDebugMode == true {
+                self.performSegue(withIdentifier: "goToMandala", sender: nil)
+            }
+        }
         tableView.estimatedRowHeight  = 200
         
     }
@@ -82,6 +91,23 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             nextAndContinueButton.setTitle("Continuar", for: .normal)
         }else{
             nextAndContinueButton.setTitle("Próxima", for: .normal)
+        }
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToMandala" {
+            if let mandalaVC = segue.destination as? MandalaViewController {
+                if Debug.isDebugMode == true {
+                    mandalaVC.mandalas = Debug.mandalas
+                } else {
+                    if let formResult = selectedForm?.result,
+                       let formPilar = selectedForm?.pilar {
+                        let mandala = Mandala(pilarName: formPilar, value: formResult)
+                        mandalaVC.mandalas.append(mandala)
+                    }
+                }
+            }
         }
     }
     

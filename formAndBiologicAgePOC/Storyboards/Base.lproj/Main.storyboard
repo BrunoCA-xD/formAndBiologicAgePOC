@@ -122,6 +122,16 @@
             </objects>
             <point key="canvasLocation" x="228.98550724637684" y="93.75"/>
         </scene>
+        <!--Mandala-->
+        <scene sceneID="2TP-ya-U4W">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Mandala" id="wbV-nY-dqg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zFG-sI-ZZh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hMX-VW-hc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2354" y="94"/>
+        </scene>
         <!--Collapsable Section View Controller-->
         <scene sceneID="Sls-qB-n4U">
             <objects>
@@ -183,11 +193,12 @@
                     <connections>
                         <outlet property="nextAndContinueButton" destination="TxP-Q2-vjP" id="Y0H-rv-yvE"/>
                         <outlet property="tableView" destination="09N-5B-PFb" id="Yv2-6A-6Yc"/>
+                        <segue destination="wbV-nY-dqg" kind="show" identifier="goToMandala" id="LmH-li-XNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra2-oC-yCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128" y="201"/>
+            <point key="canvasLocation" x="1871" y="94"/>
         </scene>
     </scenes>
     <resources>
