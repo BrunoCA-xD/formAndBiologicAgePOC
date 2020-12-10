@@ -9,7 +9,7 @@ import Foundation
 
 class Debug {
     
-    static var isDebugMode: Bool = true
+    static var isDebugMode: Bool = false
     static var mandalas: [Mandala] = [Mandala(pilarName: "Atividade Física", value: 0),
                                       Mandala(pilarName: "Alimentação", value: 31),
                                       Mandala(pilarName: "Sono", value: 33),
