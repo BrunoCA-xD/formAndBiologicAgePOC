@@ -26,7 +26,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var tableView: UITableView!
     var manager = JSONManager<[Form]>()
     
-    
+    var textField: String? = ""
     var numberOfShowingSection: Int {
         answeringSection == -1 ? 1 : 0
     }
@@ -34,6 +34,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var answeringSection: Int = -1
     
     @IBAction func nextButton(_ sender: Any) {
+        textField = ""
         if nextAndContinueButton.title(for: .normal) == "Próxima"{
             if answeringSection != -1 {
                 hiddenSections.insert(answeringSection)
@@ -104,17 +105,29 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: AlternativeCell.self)
-        
+        var resultCell: UITableViewCell!
         let alternative = selectedForm?.questions[indexPath.section].alternatives[indexPath.row]
         
-        cell.enunciate.text = alternative?.enunciation
-        cell.complementaryText.text = alternative?.text
-        cell.chosenIcon.image = alternative?.isChosen != true ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
-        cell.chosenIcon.tintColor = alternative?.isChosen != true ? .black : .green
+        if alternative?.enunciation == "" {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: InputCell.self)
+            cell.delegate = self
+            cell.valueField.text = textField
+            cell.txtLabel?.text = alternative?.text
+            cell.txtLabel.isHidden = alternative?.text == ""
+            
+            resultCell = cell
+            
+        }else {
+           let cell = tableView.dequeueReusableCell(for: indexPath, cellType: AlternativeCell.self)
+            
+            cell.enunciate.text = alternative?.enunciation
+            cell.complementaryText.text = alternative?.text
+            cell.chosenIcon.image = alternative?.isChosen != true ? UIImage(named: "circle") : UIImage(named: "checkmark.circle.fill")
+            cell.chosenIcon.tintColor = alternative?.isChosen != true ? .black : .green
+            resultCell = cell
+        }
         
-        
-        return cell
+        return resultCell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -144,9 +157,11 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if tableView.cellForRow(at: indexPath) is InputCell {
+            return
+        }
         guard selectedForm != nil else {return}
         configureButton()
-        
         let question = selectedForm!.questions[indexPath.section]
         let selectingAlternative = question.alternatives[indexPath.row]
         
@@ -201,5 +216,25 @@ extension CollapsableSectionViewController: TableHeaderFooterViewDelegate {
         }
     }
     
+}
+
+extension CollapsableSectionViewController: InputCellDelegate {
+    func valueFieldValueChanged(cell: InputCell) {
+        guard let indexPath = tableView.indexPath(for: cell),
+              let question = selectedForm?.questions[indexPath.section] else {return}
+        
+        if cell.valueField.hasText {
+            answeringSection = indexPath.section
+            question.alternatives.forEach{$0.isChosen = false}
+            question.alternatives[indexPath.row].isChosen = true
+        }else {
+            answeringSection = -1
+            question.alternatives.forEach{$0.isChosen = false}
+        }
+        textField = cell.valueField.text
+        let nextIndex = IndexPath(row: indexPath.row+1, section: indexPath.section)
+        tableView.reloadRows(at: [nextIndex], with: .none)
+        print("rodou")
+    }
 }
 

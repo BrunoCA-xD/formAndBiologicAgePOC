@@ -1466,14 +1466,14 @@
                 "alternatives":
                 [
                     {
-                        "enunciation": "Peso:",
-                        "text": "",
+                        "enunciation": "",
+                        "text": "Peso:",
                         "value": 0,
                         "isChosen": false
                     },
                     {
-                        "enunciation": "Altura:",
-                        "text": "",
+                        "enunciation": "",
+                        "text": "Altura:",
                         "value": 0,
                         "isChosen": false
                     },
