@@ -81,6 +81,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
     }
     
     /// Updates navigation tittle, questions, timeline and icon.
@@ -96,6 +97,28 @@ class ViewController: UIViewController {
         self.questionTimeline.text = "Questão \(answeredCount) de \(totalCount)"
         self.pillarIcon.image = UIImage(named: "formImg\(selectedNextItem.row)")
         self.navigationItem.title = pillar.pilar
+    }
+    
+    func formsCompleted(){
+        performSegue(withIdentifier: "goToMandala", sender: nil)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToMandala" {
+            if let mandalaVC = segue.destination as? MandalaViewController {
+                if Debug.isDebugMode == true {
+                    mandalaVC.mandalas = Debug.mandalas
+                } else {
+                    for form in forms {
+                        let formResult = form.result
+                        let formPilar = form.pilar
+                        let mandala = Mandala(pilarName: formPilar, value: formResult)
+                        mandalaVC.mandalas.append(mandala)
+                    }
+                }
+            }
+        }
     }
 }
 

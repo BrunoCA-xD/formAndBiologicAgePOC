@@ -46,7 +46,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
             
             if let item = vcController?.selectedNextItem {
                 guard item.row != 4 else {
-                    performSegue(withIdentifier: "goToMandala", sender: nil)
+                    vcController?.formsCompleted()
                     return
                 }
                 let indexPath = IndexPath(row: item.row+1, section: 0)
@@ -69,11 +69,6 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         tableView.registerHeaderFooter(nibClass: TableHeaderFooterView.self)
         tableView.registerCell(nibClass: AlternativeCell.self)
         tableView.registerCell(nibClass: InputCell.self)
-        DispatchQueue.main.async {
-            if Debug.isDebugMode == true {
-                self.performSegue(withIdentifier: "goToMandala", sender: nil)
-            }
-        }
         tableView.estimatedRowHeight  = 200
         
     }
@@ -94,22 +89,6 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToMandala" {
-            if let mandalaVC = segue.destination as? MandalaViewController {
-                if Debug.isDebugMode == true {
-                    mandalaVC.mandalas = Debug.mandalas
-                } else {
-                    if let formResult = selectedForm?.result,
-                       let formPilar = selectedForm?.pilar {
-                        let mandala = Mandala(pilarName: formPilar, value: formResult)
-                        mandalaVC.mandalas.append(mandala)
-                    }
-                }
-            }
-        }
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if let selectedForm = selectedForm {

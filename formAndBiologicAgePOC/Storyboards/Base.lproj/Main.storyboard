@@ -98,6 +98,7 @@
                         <outlet property="collectionView" destination="xHV-XB-FMj" id="iqS-RC-hZE"/>
                         <outlet property="pillarIcon" destination="K3I-Tw-gjs" id="GH8-c0-zBR"/>
                         <outlet property="questionTimeline" destination="dEO-ZD-5yf" id="MAz-O6-eIW"/>
+                        <segue destination="wbV-nY-dqg" kind="show" identifier="goToMandala" id="Nq6-Y6-EH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wX4-Zs-6sn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -130,7 +131,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMX-VW-hc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="94"/>
+            <point key="canvasLocation" x="1654" y="-185"/>
         </scene>
         <!--Collapsable Section View Controller-->
         <scene sceneID="Sls-qB-n4U">
@@ -193,7 +194,6 @@
                     <connections>
                         <outlet property="nextAndContinueButton" destination="TxP-Q2-vjP" id="Y0H-rv-yvE"/>
                         <outlet property="tableView" destination="09N-5B-PFb" id="Yv2-6A-6Yc"/>
-                        <segue destination="wbV-nY-dqg" kind="show" identifier="goToMandala" id="LmH-li-XNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra2-oC-yCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
