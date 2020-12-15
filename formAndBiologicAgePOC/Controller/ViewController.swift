@@ -139,16 +139,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         cell.pillarName.text = pillar.pilar
         cell.isCurrentPillar = selectedNextItem == indexPath
-        if indexPath.row == forms.count-1{
-           let numberOfFormsAnswered = forms.reduce(0) { (partialResult, form) -> Int in
-                if form.numberOfAnswered == form.questions.count {
-                    return partialResult+1
-                }
-                return partialResult
-            }
-            cell.isAvailable = numberOfFormsAnswered == forms.count-1
-        }
         cell.pillarQuestions.text = "\(pillar.numberOfAnswered)/\(totalCount)"
+        guard indexPath.row == forms.count-1 else {
+            return cell
+            
+        }
+       let numberOfFormsAnswered = forms.reduce(0) { (partialResult, form) -> Int in
+            if form.numberOfAnswered == form.questions.count {
+                return partialResult+1
+            }
+            return partialResult
+        }
+        cell.isAvailable = numberOfFormsAnswered == forms.count-1
         
         return cell
     }

@@ -12,6 +12,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     var hiddenSections: Set<Int> = []
     
     var vcController: ViewController?
+    var answeredForms: Int = 0
     
     var selectedForm: Form? {
         didSet{
@@ -36,6 +37,7 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
     @IBAction func nextButton(_ sender: Any) {
         textField = ""
         if nextAndContinueButton.title(for: .normal) == "Próxima"{
+            answeredForms += 1
             if answeringSection != -1 {
                 hiddenSections.insert(answeringSection)
                 answeringSection = -1
@@ -43,7 +45,6 @@ class CollapsableSectionViewController: UIViewController, UITableViewDelegate, U
                 vcController?.updateView()
             }
         } else {
-            
             if let item = vcController?.selectedNextItem {
                 guard item.row != 4 else {
                     vcController?.formsCompleted()
