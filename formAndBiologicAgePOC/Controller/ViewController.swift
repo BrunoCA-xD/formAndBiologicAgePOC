@@ -150,7 +150,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             }
             return partialResult
         }
-        cell.isAvailable = numberOfFormsAnswered == forms.count-1
+        if numberOfFormsAnswered >= 4 {
+            cell.isAvailable = true
+        } else {
+            cell.isAvailable = false
+        }
         
         return cell
     }
